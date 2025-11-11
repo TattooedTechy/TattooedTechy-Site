@@ -1,0 +1,26 @@
+name: Deploy to IPFS via Pinata
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy to IPFS (Get New CID)
+        uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
+        id: pinata_deploy
+        with:
+          pin-name: 'TattooedTechy-Hub-Latest'
+          path: './'
+          pinata-api-key: ${{ secrets.PINATA_API_KEY }}
+          pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
+          remove-old: true
+      
+      - name: Set New IPFS CID as Output
+        run: echo "NEW_CID=${{ steps.pinata_deploy.outputs.cid }}" >> $GITHUB_ENV
