@@ -1,4 +1,4 @@
-name: Deploy and Auto-Update IPNS
+name: Direct API Deployment & IPNS Update
 
 on:
   push:
@@ -12,30 +12,53 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # --- 1. DEPLOY TO IPFS (USE HIGHLY STABLE ACTION) ---
-      # This action is often maintained and uses the latest environment variables.
-      - name: Deploy Site and Pin Content
-        uses: anhvudotnet/github-action-pinata@master # Use master branch resolution
-        id: pinata_deploy
-        with:
-          pinata-api-key: ${{ secrets.PINATA_API_KEY }}
-          pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
-          source-path: './' # The root folder of your site
-          pin-name: 'TattooedTechy-Hub-Latest'
+      # --- 1. INSTALL UTILITIES & COMPRESS FILES ---
+      - name: Install dependencies (tar)
+        run: sudo apt-get install -y tar # Ensures tar is available for file bundling
 
-      # --- 2. SETUP NODE.JS ENVIRONMENT ---
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18' 
+      - name: Bundle Project Files (Tar Archive)
+        # Create a compressed tar archive of the project root
+        run: tar -czf site_archive.tar.gz .
 
-      - name: Install dependencies (axios)
-        run: npm install axios
+      # --- 2. DEPLOY TO IPFS (GET NEW CID) ---
+      # Uses a multi-part form request to upload the file bundle to Pinata's API
+      - name: Upload and Pin New CID
+        id: pinata_upload
+        run: |
+          # Use curl to upload the bundled archive
+          UPLOAD_RESPONSE=$(curl -X POST 'https://api.pinata.cloud/pinning/pinFileToIPFS' \
+            -H 'Authorization: Bearer ${{ secrets.PINATA_JWT_TOKEN }}' \
+            -F file=@site_archive.tar.gz \
+            -F 'pinataMetadata={"name":"TattooedTechy-Hub-Latest"}' \
+            -F 'pinataOptions={"cidVersion":1}')
+          
+          # Extract CID from the JSON response
+          NEW_CID=$(echo "$UPLOAD_RESPONSE" | grep -o '"IpfsHash":"[^"]*"' | cut -d ':' -f 2 | tr -d '"')
+          
+          if [ -z "$NEW_CID" ]; then
+            echo "Error: Failed to retrieve CID from Pinata upload response."
+            echo "Response: $UPLOAD_RESPONSE"
+            exit 1
+          fi
+          
+          # Set the NEW_CID as an environment variable for the next step (IPNS)
+          echo "NEW_CID=$NEW_CID" >> $GITHUB_ENV
+          echo "✅ New CID Retrieved: $NEW_CID"
 
+      # --- 3. UPDATE IPNS (SET PERMANENT ALIAS) ---
       - name: Publish New CID to IPNS Key
-        run: node ipns_publisher.js
-        env:
-          PINATA_JWT_TOKEN: ${{ secrets.PINATA_JWT_TOKEN }}
-          IPNS_HASH: ${{ secrets.IPNS_HASH }}
-          # Output name convention for this action is usually 'cid', but may be 'ipfsHash' or 'ipfs_hash'
-          NEW_CID: ${{ steps.pinata_deploy.outputs.ipfs_hash }}
+        run: |
+          echo "Starting IPNS publish for CID: ${{ env.NEW_CID }}"
+          
+          # This API call tells Pinata to update the existing IPNS hash to point to the new CID
+          IPNS_PUBLISH_RESPONSE=$(curl -X PUT 'https://api.pinata.cloud/pinning/updateIpnsKey' \
+            -H 'Authorization: Bearer ${{ secrets.PINATA_JWT_TOKEN }}' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "name": "TattooedTechy-IPNS-Alias",
+              "hashToPin": "${{ env.NEW_CID }}"
+            }')
+          
+          echo "IPNS Publishing Request Sent."
+          echo "Response: $IPNS_PUBLISH_RESPONSE"
+          echo "Check Pinata IPNS section for final confirmation of k51q hash update."
