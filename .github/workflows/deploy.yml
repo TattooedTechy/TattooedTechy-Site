@@ -20,12 +20,12 @@ jobs:
         # Create a compressed tar archive of the project root
         run: tar -czf site_archive.tar.gz .
 
-      # --- 2. DEPLOY TO IPFS (GET NEW CID) ---
+# --- 2. DEPLOY TO IPFS (GET NEW CID) ---
       # Uses a multi-part form request to upload the file bundle to Pinata's API
       - name: Upload and Pin New CID
         id: pinata_upload
         run: |
-          # Use curl to upload the bundled archive
+          # Use curl to upload the bundled archive, using JWT for Authorization
           UPLOAD_RESPONSE=$(curl -X POST 'https://api.pinata.cloud/pinning/pinFileToIPFS' \
             -H 'Authorization: Bearer ${{ secrets.PINATA_JWT_TOKEN }}' \
             -F file=@site_archive.tar.gz \
@@ -37,7 +37,13 @@ jobs:
           
           if [ -z "$NEW_CID" ]; then
             echo "Error: Failed to retrieve CID from Pinata upload response."
-            echo "Response: $UPLOAD_RESPONSE"
+            # Pinata often returns error messages inside 'error' or 'message' fields.
+            ERROR_MESSAGE=$(echo "$UPLOAD_RESPONSE" | grep -o '"error":"[^"]*"' | cut -d ':' -f 2 | tr -d '"')
+            if [ -z "$ERROR_MESSAGE" ]; then
+                ERROR_MESSAGE=$(echo "$UPLOAD_RESPONSE" | grep -o '"message":"[^"]*"' | cut -d ':' -f 2 | tr -d '"')
+            fi
+
+            echo "Pinata Error Response: $ERROR_MESSAGE"
             exit 1
           fi
           
