@@ -1,9 +1,9 @@
-name: Deploy to IPFS via Pinata
+name: Deploy and Update IPNS
 
 on:
   push:
     branches:
-      - master
+      - master # Run this workflow on pushes to the master branch
 
 jobs:
   deploy:
@@ -12,15 +12,35 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Deploy to IPFS (Get New CID)
+      # --- 1. DEPLOY TO IPFS (GET NEW CID) ---
+      - name: Deploy to IPFS
         uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
         id: pinata_deploy
         with:
           pin-name: 'TattooedTechy-Hub-Latest'
-          path: './'
+          path: './' # Upload the entire repository root
           pinata-api-key: ${{ secrets.PINATA_API_KEY }}
           pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
           remove-old: true
-      
-      - name: Set New IPFS CID as Output
-        run: echo "NEW_CID=${{ steps.pinata_deploy.outputs.cid }}" >> $GITHUB_ENV
+
+      # --- 2. UPDATE IPNS (SET PERMANENT ALIAS) ---
+      - name: Update IPNS Key to New CID
+        # This uses the Pinata API to update the IPNS record using the new CID
+        # We use the standard API Key/Secret pair for compatibility with the curl command
+        run: |
+          echo "New CID: ${{ steps.pinata_deploy.outputs.cid }}"
+          curl --location --request POST 'https://api.pinata.cloud/pinning/hashToIPFS' \
+          --header 'Content-Type: application/json' \
+          --header 'pinata_api_key: ${{ secrets.PINATA_API_KEY }}' \
+          --header 'pinata_secret_api_key: ${{ secrets.PINATA_SECRET_API_KEY }}' \
+          --data-raw '{
+              "hashToPin": "${{ steps.pinata_deploy.outputs.cid }}",
+              "pinataOptions": {
+                  "cidVersion": 1
+              },
+              "pinataMetadata": {
+                  "name": "${{ secrets.IPNS_HASH }}"
+              }
+          }'
+        env:
+          IPFS_CID: ${{ steps.pinata_deploy.outputs.cid }}
