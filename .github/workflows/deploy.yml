@@ -1,4 +1,4 @@
-name: Deploy and Update IPNS
+name: Deploy and Auto-Update IPNS
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       # --- 1. DEPLOY TO IPFS (GET NEW CID) ---
-      - name: Deploy to IPFS
+      - name: Deploy Site and Pin Content
         uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
         id: pinata_deploy
         with:
@@ -23,24 +23,11 @@ jobs:
           pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
           remove-old: true
 
-      # --- 2. UPDATE IPNS (SET PERMANENT ALIAS) ---
-      - name: Update IPNS Key to New CID
-        # This uses the Pinata API to update the IPNS record using the new CID
-        # We use the standard API Key/Secret pair for compatibility with the curl command
-        run: |
-          echo "New CID: ${{ steps.pinata_deploy.outputs.cid }}"
-          curl --location --request POST 'https://api.pinata.cloud/pinning/hashToIPFS' \
-          --header 'Content-Type: application/json' \
-          --header 'pinata_api_key: ${{ secrets.PINATA_API_KEY }}' \
-          --header 'pinata_secret_api_key: ${{ secrets.PINATA_SECRET_API_KEY }}' \
-          --data-raw '{
-              "hashToPin": "${{ steps.pinata_deploy.outputs.cid }}",
-              "pinataOptions": {
-                  "cidVersion": 1
-              },
-              "pinataMetadata": {
-                  "name": "${{ secrets.IPNS_HASH }}"
-              }
-          }'
-        env:
-          IPFS_CID: ${{ steps.pinata_deploy.outputs.cid }} 
+      # --- 2. UPDATE IPNS (FORCE PUBLISH TO ALIAS) ---
+      # We use a second action to handle the complex IPNS publishing function.
+      - name: Publish New CID to IPNS Key
+        uses: satyambhatnagar/pinata-ipns-publish@v1.0.0 # Dedicated IPNS publishing action
+        with:
+          jwt: ${{ secrets.PINATA_JWT_TOKEN }} # NOTE: This action requires the JWT!
+          name: TattooedTechy-IPNS-Alias
+          ipfs_path: ${{ steps.pinata_deploy.outputs.cid }}
