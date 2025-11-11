@@ -23,11 +23,19 @@ jobs:
           pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
           remove-old: true
 
-      # --- 2. UPDATE IPNS (FORCE PUBLISH TO ALIAS) ---
-      # We use a second action to handle the complex IPNS publishing function.
-      - name: Publish New CID to IPNS Key
-        uses: satyambhatnagar/pinata-ipns-publish@v1.0.0 # Dedicated IPNS publishing action
+      # --- 2. SETUP NODE.JS ENVIRONMENT ---
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          jwt: ${{ secrets.PINATA_JWT_TOKEN }} # NOTE: This action requires the JWT!
-          name: TattooedTechy-IPNS-Alias
-          ipfs_path: ${{ steps.pinata_deploy.outputs.cid }}
+          node-version: '18' 
+
+      - name: Install dependencies (axios)
+        run: npm install axios
+
+      # --- 3. UPDATE IPNS (RUN CUSTOM SCRIPT) ---
+      - name: Publish New CID to IPNS Key
+        run: node ipns_publisher.js
+        env:
+          PINATA_JWT_TOKEN: ${{ secrets.PINATA_JWT_TOKEN }}
+          IPNS_HASH: ${{ secrets.IPNS_HASH }}
+          NEW_CID: ${{ steps.pinata_deploy.outputs.cid }}
