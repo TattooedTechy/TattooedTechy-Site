@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TattooedTechy - All Home Improvement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body { font-family: 'Inter', 'sans-serif'; color: #d1d5db; }
+        nav a.active { color: #38bdf8; }
+        #mobile-menu a.active-mobile { color: #38bdf8; background-color: #1f2937; }
+    </style>
+</head>
+<body class="antialiased bg-cover bg-center bg-fixed" style="background-image: url('images/banner1.jpg');">
+
+    <div class="flex flex-col min-h-screen">
+        <!-- HEADER (Home Improvement is Active) -->
+        <header class="sticky top-0 z-10 shadow-lg">
+            <div class="bg-gray-900/80 backdrop-blur-md">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-24">
+                        <div class="flex-shrink-0">
+                            <a href="index.html" class="flex items-center space-x-4">
+                                <img class="h-16 w-16 rounded-full border-2 border-sky-400" 
+                                     src="images/avatar.jpg" 
+                                     alt="Avatar"
+                                     onerror="this.src='https://placehold.co/100x100/1f2937/d1d5db?text=T'; this.onerror=null;">
+                                <span class="text-3xl font-bold text-white">
+                                    TattooedTechy.ETH
+                                </span>
+                            </a>
+                        </div>
+                        <nav class="hidden md:flex md:space-x-4 lg:space-x-6">
+                            <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Home</a>
+                            <a href="tattoos.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Tattoos</a>
+                            <a href="anime.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Anime</a>
+                            <a href="technology.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Technology</a>
+                            <a href="investments.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Investments</a>
+                            <a href="home-improvement.html" class="active px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Home Improvement</a>
+                            <a href="food.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Foodies</a>
+                        </nav>
+                        <div class="md:hidden flex items-center">
+                            <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-400">
+                                <span class="sr-only">Open main menu</span>
+                                <ion-icon name="menu-outline" class="block h-6 w-6" id="menu-closed-icon"></ion-icon>
+                                <ion-icon name="close-outline" class="hidden h-6 w-6" id="menu-open-icon"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden hidden bg-gray-900/90 backdrop-blur-md" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Home</a>
+                    <a href="tattoos.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Tattoos</a>
+                    <a href="anime.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Anime</a>
+                    <a href="technology.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Technology</a>
+                    <a href="investments.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Investments</a>
+                    <a href="home-improvement.html" class="active-mobile block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Home Improvement</a>
+                    <a href="food.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Foodies</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="flex-grow">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden">
+                    
+                    <!-- Page Title -->
+                    <div class="p-6 md:p-10 border-b border-gray-700/50">
+                        <h1 class="text-4xl font-bold text-white">
+                            Full Project Archive
+                        </h1>
+                        <p class="text-lg text-gray-300 mt-1">DIY projects, before-and-afters, and tips.</p>
+                    </div>
+
+                    <!-- Main Page Content -->
+                    <div class="prose prose-invert prose-lg max-w-none text-gray-300 p-6 md:p-10">
+                        
+                        <h2 class="text-3xl font-bold text-white border-b border-gray-700/50 pb-2 mt-12 mb-8">All Projects</h2>
+                        
+                        <div id="content-feed" class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- Content will be injected here -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900/80 backdrop-blur-md border-t border-gray-700/50">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+                <p>&copy; 2025 TattooedTechy.ETH. All rights reserved.</p>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="https://x.com/@Tattooed_Techy" class="hover:text-sky-400">
+                        <span class="sr-only">X (Twitter)</span>
+                        <ion-icon name="logo-x" class="h-6 w-6"></ion-icon>
+                    </a>
+                    <a href="https://youtube.com/@Tattooed_Techy" class="hover:text-sky-400">
+                        <span class="sr-only">YouTube</span>
+                        <ion-icon name="logo-youtube" class="h-6 w-6"></ion-icon>
+                    </a>
+                    <a href="https://discord.gg/9BkeFcaz" class="hover:text-sky-400">
+                        <span class="sr-only">Discord</span>
+                        <ion-icon name="logo-discord" class="h-6 w-6"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openIcon = document.getElementById('menu-closed-icon');
+        const closeIcon = document.getElementById('menu-open-icon');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            openIcon.classList.toggle('block');
+            closeIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('block');
+        });
+    </script>
+    
+    <script src="site-updater.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 'home' = load only the 'home' category
+            // null = no limit, show all posts
+            renderContent('home', null);
+        });
+    </script>
+
+</body>
+</html>

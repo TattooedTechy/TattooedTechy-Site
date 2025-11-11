@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TattooedTechy - FIRE Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', 'sans-serif';
+            color: #d1d5db; 
+        }
+        nav a.active {
+            color: #38bdf8; 
+        }
+        #mobile-menu a.active-mobile {
+            color: #38bdf8; 
+            background-color: #1f2937; 
+        }
+    </style>
+</head>
+<body class="antialiased bg-cover bg-center bg-fixed" style="background-image: url('images/banner1.jpg');">
+
+    <div class="flex flex-col min-h-screen">
+        <!-- HEADER -->
+        <header class="sticky top-0 z-10 shadow-lg">
+            <div class="bg-gray-900/80 backdrop-blur-md">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-24">
+                        <div class="flex-shrink-0">
+                            <a href="index.html" class="flex items-center space-x-4">
+                                <img class="h-16 w-16 rounded-full border-2 border-sky-400" 
+                                     src="images/avatar.jpg" 
+                                     alt="Avatar"
+                                     onerror="this.src='https://placehold.co/100x100/1f2937/d1d5db?text=T'; this.onerror=null;">
+                                <span class="text-3xl font-bold text-white">
+                                    TattooedTechy.ETH
+                                </span>
+                            </a>
+                        </div>
+                        <nav class="hidden md:flex md:space-x-4 lg:space-x-6">
+                            <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Home</a>
+                            <a href="tattoos.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Tattoos</a>
+                            <a href="anime.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Anime</a>
+                            <a href="technology.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Technology</a>
+                            <a href="investments.html" class="active px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Investments</a>
+                            <a href="home-improvement.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Home Improvement</a>
+                            <a href="food.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Foodies</a>
+                        </nav>
+                        <div class="md:hidden flex items-center">
+                            <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-400">
+                                <span class="sr-only">Open main menu</span>
+                                <ion-icon name="menu-outline" class="block h-6 w-6" id="menu-closed-icon"></ion-icon>
+                                <ion-icon name="close-outline" class="hidden h-6 w-6" id="menu-open-icon"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden hidden bg-gray-900/90 backdrop-blur-md" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Home</a>
+                    <a href="tattoos.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Tattoos</a>
+                    <a href="anime.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Anime</a>
+                    <a href="technology.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Technology</a>
+                    <a href="investments.html" class="active-mobile block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Investments</a>
+                    <a href="home-improvement.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Home Improvement</a>
+                    <a href="food.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Foodies</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- CALCULATOR PAGE CONTENT -->
+        <main class="flex-grow">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden">
+                    
+                    <div class="p-6 md:p-10 border-b border-gray-700/50">
+                        <h1 class="text-4xl font-bold text-white">
+                            Robust FIRE Calculator
+                        </h1>
+                        <!-- UPDATED DESCRIPTION -->
+                        <p class="text-lg text-gray-300 mt-1">An optimal "waterfall" calculator. Run your own numbers! If you don't get annual raises put 0.</p>
+                        <p class="text-lg text-gray-300 mt-1">The contribution limits are set for 2026 projections and all limits are for self only there is no family calculations.</p>
+                    </div>
+
+                    <!-- 2-COLUMN LAYOUT -->
+                    <div class="p-6 md:p-10 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+
+                        <!-- === LEFT COLUMN: CALCULATOR FORM === -->
+                        <div class="lg:col-span-2">
+                            <div id="calculator-form" class="space-y-8">
+                                
+                                <!-- 1. Current Status -->
+                                <div>
+                                    <h3 class="text-2xl font-semibold text-white mb-4">1. Current Status</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                        <div>
+                                            <label for="currentAge" class="block text-sm font-medium text-gray-300 mb-1">Current Age</label>
+                                            <input type="number" id="currentAge" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="30">
+                                        </div>
+                                        <div>
+                                            <label for="retirementAge" class="block text-sm font-medium text-gray-300 mb-1">Retirement Age</label>
+                                            <input type="number" id="retirementAge" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="65">
+                                        </div>
+                                        <div>
+                                            <label for="initialSalary" class="block text-sm font-medium text-gray-300 mb-1">Initial Salary ($)</label>
+                                            <input type="number" id="initialSalary" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="60000">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 2. Portfolio (Starting From Values) -->
+                                <div>
+                                    <h3 class="text-2xl font-semibold text-white mb-4">2. Portfolio (Starting From Values)</h3>
+                                     <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                        <div>
+                                            <label for="pv_401k" class="block text-sm font-medium text-gray-300 mb-1">401k ($)</label>
+                                            <input type="number" id="pv_401k" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="2500">
+                                        </div>
+                                        <div>
+                                            <label for="pv_roth_ira" class="block text-sm font-medium text-gray-300 mb-1">Roth IRA ($)</label>
+                                            <input type="number" id="pv_roth_ira" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="2000">
+                                        </div>
+                                        <div>
+                                            <label for="pv_brokerage" class="block text-sm font-medium text-gray-300 mb-1">Brokerage ($)</label>
+                                            <input type="number" id="pv_brokerage" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="1000">
+                                        </div>
+                                        <div>
+                                            <label for="pv_hsa" class="block text-sm font-medium text-gray-300 mb-1">HSA ($)</label>
+                                            <input type="number" id="pv_hsa" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="500">
+                                        </div>
+                                        <div>
+                                            <label for="pv_crypto" class="block text-sm font-medium text-gray-300 mb-1">Crypto ($)</label>
+                                            <input type="number" id="pv_crypto" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="500">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 3. Brokerage Allocation -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-2xl font-semibold text-white">3. Brokerage Allocation (%)</h3>
+                                        <span id="brokerage-alloc-total" class="text-lg font-semibold text-gray-300">Total: 100%</span>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                        <div>
+                                            <label for="brokerage_alloc_equity" class="block text-sm font-medium text-gray-300 mb-1">Equity</label>
+                                            <input type="number" id="brokerage_alloc_equity" data-alloc-group="brokerage" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="54">
+                                        </div>
+                                        <div>
+                                            <label for="brokerage_alloc_intl" class="block text-sm font-medium text-gray-300 mb-1">International</label>
+                                            <input type="number" id="brokerage_alloc_intl" data-alloc-group="brokerage" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="36">
+                                        </div>
+                                        <div>
+                                            <label for="brokerage_alloc_bonds" class="block text-sm font-medium text-gray-300 mb-1">Bonds</label>
+                                            <input type="number" id="brokerage_alloc_bonds" data-alloc-group="brokerage" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="10">
+                                        </div>
+                                        <div>
+                                            <label for="brokerage_alloc_gold" class="block text-sm font-medium text-gray-300 mb-1">Gold</label>
+                                            <input type="number" id="brokerage_alloc_gold" data-alloc-group="brokerage" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                        <div>
+                                            <label for="brokerage_alloc_crypto" class="block text-sm font-medium text-gray-300 mb-1">Crypto</label>
+                                            <input type="number" id="brokerage_alloc_crypto" data-alloc-group="brokerage" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 4. Roth IRA Allocation -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-2xl font-semibold text-white">4. Roth IRA Allocation (%)</h3>
+                                        <span id="roth-ira-alloc-total" class="text-lg font-semibold text-gray-300">Total: 100%</span>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                        <div>
+                                            <label for="roth_ira_alloc_equity" class="block text-sm font-medium text-gray-300 mb-1">Equity</label>
+                                            <input type="number" id="roth_ira_alloc_equity" data-alloc-group="roth-ira" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="100">
+                                        </div>
+                                        <div>
+                                            <label for="roth_ira_alloc_intl" class="block text-sm font-medium text-gray-300 mb-1">International</label>
+                                            <input type="number" id="roth_ira_alloc_intl" data-alloc-group="roth-ira" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                        <div>
+                                            <label for="roth_ira_alloc_bonds" class="block text-sm font-medium text-gray-300 mb-1">Bonds</label>
+                                            <input type="number" id="roth_ira_alloc_bonds" data-alloc-group="roth-ira" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                        <div>
+                                            <label for="roth_ira_alloc_gold" class="block text-sm font-medium text-gray-300 mb-1">Gold</label>
+                                            <input type="number" id="roth_ira_alloc_gold" data-alloc-group="roth-ira" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                        <div>
+                                            <label for="roth_ira_alloc_crypto" class="block text-sm font-medium text-gray-300 mb-1">Crypto</label>
+                                            <input type="number" id="roth_ira_alloc_crypto" data-alloc-group="roth-ira" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 5. HSA Allocation -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-2xl font-semibold text-white">5. HSA Allocation (%)</h3>
+                                        <span id="hsa-alloc-total" class="text-lg font-semibold text-gray-300">Total: 100%</span>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                        <div>
+                                            <label for="hsa_alloc_equity" class="block text-sm font-medium text-gray-300 mb-1">Equity</label>
+                                            <input type="number" id="hsa_alloc_equity" data-alloc-group="hsa" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="90">
+                                        </div>
+                                        <div>
+                                            <label for="hsa_alloc_intl" class="block text-sm font-medium text-gray-300 mb-1">International</label>
+                                            <input type="number" id="hsa_alloc_intl" data-alloc-group="hsa" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                        <div>
+                                            <label for="hsa_alloc_bonds" class="block text-sm font-medium text-gray-300 mb-1">Bonds</label>
+                                            <input type="number" id="hsa_alloc_bonds" data-alloc-group="hsa" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                        <div>
+                                            <label for="hsa_alloc_gold" class="block text-sm font-medium text-gray-300 mb-1">Gold</label>
+                                            <input type="number" id="hsa_alloc_gold" data-alloc-group="hsa" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="10">
+                                        </div>
+                                        <div>
+                                            <label for="hsa_alloc_crypto" class="block text-sm font-medium text-gray-300 mb-1">Crypto</label>
+                                            <input type="number" id="hsa_alloc_crypto" data-alloc-group="hsa" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 6. Savings Plan -->
+                                <div>
+                                    <h3 class="text-2xl font-semibold text-white mb-4">6. Savings Plan (Current Annual Contributions)</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                        <div>
+                                            <label for="base_contrib_401k" class="block text-sm font-medium text-gray-300 mb-1">401k (Employee)</label>
+                                            <input type="number" id="base_contrib_401k" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="3000">
+                                        </div>
+                                        <div>
+                                            <label for="base_contrib_roth_ira" class="block text-sm font-medium text-gray-300 mb-1">Roth IRA</label>
+                                            <input type="number" id="base_contrib_roth_ira" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="500">
+                                        </div>
+                                        <div>
+                                            <label for="base_contrib_brokerage" class="block text-sm font-medium text-gray-300 mb-1">Brokerage</label>
+                                            <input type="number" id="base_contrib_brokerage" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="500">
+                                        </div>
+                                        <div>
+                                            <label for="base_contrib_hsa" class="block text-sm font-medium text-gray-300 mb-1">HSA</label>
+                                            <input type="number" id="base_contrib_hsa" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="1000">
+                                        </div>
+                                        <div>
+                                            <label for="base_contrib_crypto" class="block text-sm font-medium text-gray-300 mb-1">Crypto</label>
+                                            <input type="number" id="base_contrib_crypto" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="500">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 7. Spillover Allocation (NEW) -->
+                                <div>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-2xl font-semibold text-white">7. Spillover Allocation (%)</h3>
+                                        <span id="spillover-alloc-total" class="text-lg font-semibold text-gray-300">Total: 100%</span>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                        <div class="md:col-span-2">
+                                            <label for="spillover_alloc_brokerage" class="block text-sm font-medium text-gray-300 mb-1">Brokerage</label>
+                                            <input type="number" id="spillover_alloc_brokerage" data-alloc-group="spillover" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="100">
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label for="spillover_alloc_crypto" class="block text-sm font-medium text-gray-300 mb-1">Crypto</label>
+                                            <input type="number" id="spillover_alloc_crypto" data-alloc-group="spillover" class="alloc-input w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="0">
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-400 mt-2">Where money goes *after* HSA, Roth IRA, and 401k are all maxed out.</p>
+                                </div>
+
+
+                                <!-- 8. Retirement Goal (Renumbered) -->
+                                <div>
+                                    <h3 class="text-2xl font-semibold text-white mb-4">8. Retirement Goal</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label for="targetSpending" class="block text-sm font-medium text-gray-300 mb-1">Target Annual Spending (Today's $)</label>
+                                            <input type="number" id="targetSpending" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="50000">
+                                        </div>
+                                        <div>
+                                            <label for="withdrawalRate" class="block text-sm font-medium text-gray-300 mb-1">Withdrawal Rate (e.g., 0.04) 4% Rule</label>
+                                            <input type="number" id="withdrawalRate" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.04">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 9. Plan Assumptions (Renumbered) -->
+                                <div>
+                                    <h3 class="text-2xl font-semibold text-white mb-4">9. Plan Assumptions</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                        <div>
+                                            <label for="salaryRaiseRate" class="block text-sm font-medium text-gray-300 mb-1">Salary Raise Yearly (%)</label>
+                                            <input type="number" id="salaryRaiseRate" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.030">
+                                        </div>
+                                        <div>
+                                            <label for="employerMatchRate" class="block text-sm font-medium text-gray-300 mb-1">Employer Match 401k (%)</label>
+                                            <input type="number" id="employerMatchRate" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.35">
+                                        </div>
+                                        <div>
+                                            <label for="generalInflation" class="block text-sm font-medium text-gray-300 mb-1">General Inflation (%)</label>
+                                            <input type="number" id="generalInflation" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.03">
+                                        </div>
+                                        <div>
+                                            <label for="limitInflation" class="block text-sm font-medium text-gray-300 mb-1">Limit Inflation (%)</label>
+                                            <input type="number" id="limitInflation" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.02">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 10. Asset Return Assumptions (Renumbered) -->
+                                <div>
+                                    <h3 class="text-2xl font-semibold text-white mb-4">10. Conservative Asset Return Assumptions (%)</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                        <div>
+                                            <label for="r_equity" class="block text-sm font-medium text-gray-300 mb-1">Equity (S&P500)</label>
+                                            <input type="number" id="r_equity" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.07">
+                                        </div>
+                                        <div>
+                                            <label for="r_international" class="block text-sm font-medium text-gray-300 mb-1">International</label>
+                                            <input type="number" id="r_international" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.06">
+                                        </div>
+                                        <div>
+                                            <label for="r_bonds" class="block text-sm font-medium text-gray-300 mb-1">Bonds</label>
+                                            <input type="number" id="r_bonds" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.035">
+                                        </div>
+                                        <div>
+                                            <label for="r_gold" class="block text-sm font-medium text-gray-300 mb-1">Gold</label>
+                                            <input type="number" id="r_gold" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.03">
+                                        </div>
+                                        <div>
+                                            <label for="r_crypto" class="block text-sm font-medium text-gray-300 mb-1">Crypto (BTC/ETH)</label>
+                                            <input type="number" id="r_crypto" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.05">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- RUN BUTTON -->
+                                <div class="mt-10 pt-6 border-t border-gray-700/50 text-center">
+                                    <button id="runButton" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-10 rounded-lg shadow-lg transition duration-200 text-lg">
+                                        Run Simulation
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- === RIGHT COLUMN: HOW IT WORKS (UPDATED) === -->
+                        <div class="lg:col-span-1">
+                            <div class="lg:sticky lg:top-32 bg-gray-800/50 rounded-2xl shadow-lg p-6">
+                                <h3 class="text-2xl font-semibold text-white mb-4">How It Works</h3>
+                                <div class="prose prose-invert prose-sm text-gray-300">
+                                    <p>This calculator projects your future using an <strong class="text-white">optimal savings waterfall</strong> model.</p>
+                                    
+                                    <h4 class="text-white">What is an Optimal Waterfall?</h4>
+                                    <p>The model uses your <strong class="text-white">Salary Raise</strong> to fill your tax-advantaged accounts in the most efficient order.</p>
+                                    <p>Your raise is automatically applied in this priority:</p>
+                                    <ol>
+                                        <li>Tops off your <strong class="text-white">HSA</strong> contribution (up to the legal limit).</li>
+                                        <li>Any remainder tops off your <strong class="text-white">Roth IRA</strong> (up to the limit).</li>
+                                        <li>Any remainder tops off your <strong class="text-white">401k</strong> (up to the limit).</li>
+                                        <li>All final <strong class="text-white">"spillover"</strong> cash is split between your Brokerage and Crypto accounts based on the allocation you set.</li>
+                                    </ol>
+                                    
+                                    <h4 class="text-white">Key Assumptions (UPDATED):</h4>
+                                    <ul>
+                                        <li><strong class="text-white">Compounding:</strong> Balances grow for one year, and contributions are added at the <strong class="text-white">end of the year</strong>. (This is a more conservative and standard calculation).</li>
+                                        <li><strong class="text-white">Base Contributions:</strong> Your "Savings Plan" inputs establish your *minimum* annual savings. The inputs for **HSA, Roth IRA, Brokerage, and Crypto** grow each year by your **Salary Raise Rate**. Your **401k (Employee) contribution remains fixed** at the input amount, and is only increased when the "waterfall" uses part of your salary raise to top it off to the legal limit.</li>
+                                        <li><strong class="text-white">Asset Returns:</strong> The model calculates a blended return for your <strong class="text-white">Roth IRA, Brokerage, and HSA</strong> based on the custom allocations you set. Your 401k is assumed to be 100% Equity (using the 'Equity' rate).</li>
+                                        <li><strong class="text-white">Inflation:</strong> Your retirement spending goal is inflated by "General Inflation," while 401k/IRA/HSA limits grow by the (slower) "Limit Inflation."</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div> <!-- End of 2-column grid -->
+
+
+                    <!-- RESULTS SECTION -->
+                    <!-- NEW: Error Message Div -->
+                    <div id="error-message" class="hidden p-6 md:p-10 mx-6 md:mx-10 -mb-4 text-center bg-red-800/50 rounded-lg text-white font-semibold">
+                        <!-- Error message will be injected here -->
+                    </div>
+
+                    <div id="results-loading" class="hidden p-6 md:p-10 text-center">
+                        <div class="flex justify-center items-center">
+                            <svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-sky-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span class="text-xl text-gray-300">Calculating your future...</span>
+                        </div>
+                    </div>
+                    <div id="results-card" class="hidden">
+                        <!-- 1. Retirement Readiness -->
+                        <div class="p-6 md:p-10 border-t border-gray-700/50">
+                            <h2 class="text-3xl font-bold text-white mb-6">Your Robust FIRE Projection</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="bg-gray-800/50 p-6 rounded-lg">
+                                    <h4 class="text-sm font-medium text-gray-400 uppercase">Target FIRE Number</h4>
+                                    <p id="resultTarget" class="text-4xl font-bold text-white mt-2">$0</p>
+                                </div>
+                                <div class="bg-gray-800/50 p-6 rounded-lg">
+                                    <h4 class="text-sm font-medium text-gray-400 uppercase">Projected Portfolio</h4>
+                                    <p id="resultPortfolio" class="text-4xl font-bold text-white mt-2">$0</p>
+                                </div>
+                                <div class="bg-sky-800/50 p-6 rounded-lg">
+                                    <h4 class="text-sm font-medium text-sky-200 uppercase">Surplus / (Shortfall)</h4>
+                                    <p id="resultSurplus" class="text-4xl font-bold text-white mt-2">$0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2. Retirement Lifestyle -->
+                        <div class="p-6 md:p-10 border-t border-gray-700/50">
+                            <h3 class="text-2xl font-semibold text-white mb-4">Your Retirement Lifestyle (at <span id="resultRetirementAge">0</span>)</h3>
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-gray-800/50 p-6 rounded-lg">
+                                    <h4 class="text-sm font-medium text-gray-400 uppercase">Your Goal (Inflated Annual Spend)</h4>
+                                    <p id="resultGoalSpend" class="text-3xl font-bold text-white mt-2">$0</p>
+                                </div>
+                                <div class="bg-gray-800/50 p-6 rounded-lg">
+                                    <h4 class="text-sm font-medium text-gray-400 uppercase">Your Sustainable Annual Spend</h4>
+                                    <p id="resultSustainableSpend" class="text-3xl font-bold text-white mt-2">$0</p>
+                                </div>
+                            </div>
+                            <!-- UPDATED ID -->
+                            <p id="waterfallMilestone" class="text-center text-sky-300 mt-6 text-lg"></p>
+                        </div>
+                        <!-- 3. Year-by-Year Breakdown -->
+                        <div class="p-6 md:p-10 border-t border-gray-700/50">
+                            <h3 class="text-2xl font-semibold text-white mb-4">Year-by-Year Detailed Breakdown</h3>
+                            <div class="overflow-x-auto rounded-lg bg-gray-800/50 shadow-lg">
+                                <table class="w-full min-w-[800px] text-left">
+                                    <thead class="bg-gray-700/50">
+                                        <tr>
+                                            <th class="p-4 text-sm font-semibold text-gray-300 uppercase">Age</th>
+                                            <th class="p-4 text-sm font-semibold text-gray-300 uppercase">Total Portfolio</th>
+                                            <th class="p-4 text-sm font-semibold text-gray-300 uppercase">401k</th>
+                                            <th class="p-4 text-sm font-semibold text-gray-300 uppercase">Roth IRA</th>
+                                            <th class="p-4 text-sm font-semibold text-gray-300 uppercase">Brokerage</th>
+                                            <th class="p-4 text-sm font-semibold text-gray-300 uppercase">HSA</th>
+                                            <th class="p-4 text-sm font-semibold text-gray-300 uppercase">Crypto</th>
+                                            <!-- UPDATED HEADER -->
+                                            <th class="p-4 text-sm font-semibold text-gray-300 uppercase">Total Contrib.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="resultsTableBody" class="divide-y divide-gray-700/50">
+                                        <!-- Rows will be injected here by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-gray-900/80 backdrop-blur-md border-t border-gray-700/50">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+                <p>&copy; 2025 TattooedTechy.ETH. All rights reserved.</p>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="https://x.com/@Tattooed_Techy" class="hover:text-sky-400">
+                        <span class="sr-only">X (Twitter)</span>
+                        <ion-icon name="logo-x" class="h-6 w-6"></ion-icon>
+                    </a>
+                    <a href="httpsis://youtube.com/@Tattooed_Techy" class="hover:text-sky-400">
+                        <span class="sr-only">YouTube</span>
+                        <ion-icon name="logo-youtube" class="h-6 w-6"></ion-icon>
+                    </a>
+                    <a href="https://discord.gg/9BkeFcaz" class="hover:text-sky-400">
+                        <span class="sr-only">Discord</span>
+                        <ion-icon name="logo-discord" class="h-6 w-6"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SCRIPT for mobile menu -->
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openIcon = document.getElementById('menu-closed-icon');
+        const closeIcon = document.getElementById('menu-open-icon');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            openIcon.classList.toggle('block');
+            closeIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('block');
+        });
+    </script>
+    
+    <!-- CALCULATOR SCRIPT (UPDATED) -->
+<script>
+        // --- HELPER: Format to $USD ---
+        function formatCurrency(num) {
+            // Check if num is NaN or Infinity, and treat it as 0 for display if so.
+            if (isNaN(num) || !isFinite(num)) {
+                num = 0;
+            }
+            return num.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+        }
+
+        // --- HELPER: Live Allocation Total Updater ---
+        function setupAllocationUpdater() {
+            const inputs = document.querySelectorAll('.alloc-input');
+            const totals = {
+                brokerage: {
+                    span: document.getElementById('brokerage-alloc-total'),
+                    inputs: Array.from(document.querySelectorAll('[data-alloc-group="brokerage"]'))
+                },
+                'roth-ira': {
+                    span: document.getElementById('roth-ira-alloc-total'),
+                    inputs: Array.from(document.querySelectorAll('[data-alloc-group="roth-ira"]'))
+                },
+                hsa: {
+                    span: document.getElementById('hsa-alloc-total'),
+                    inputs: Array.from(document.querySelectorAll('[data-alloc-group="hsa"]'))
+                },
+                // NEW: Add Spillover updater
+                'spillover': {
+                    span: document.getElementById('spillover-alloc-total'),
+                    inputs: Array.from(document.querySelectorAll('[data-alloc-group="spillover"]'))
+                }
+            };
+
+            function updateTotals(groupName) {
+                const group = totals[groupName];
+                let total = 0;
+                group.inputs.forEach(input => {
+                    total += parseFloat(input.value) || 0;
+                });
+                
+                group.span.textContent = `Total: ${total}%`;
+                if (Math.round(total) === 100) {
+                    group.span.classList.remove('text-red-400');
+                    group.span.classList.add('text-green-400');
+                } else {
+                    group.span.classList.remove('text-green-400');
+                    group.span.classList.add('text-red-400');
+                }
+            }
+
+            inputs.forEach(input => {
+                input.addEventListener('input', (e) => {
+                    updateTotals(e.target.dataset.allocGroup);
+                });
+            });
+
+            // Initial calculation on load
+            updateTotals('brokerage');
+            updateTotals('roth-ira');
+            updateTotals('hsa');
+            updateTotals('spillover'); // NEW
+        }
+
+        // --- MAIN SIMULATION LOGIC ---
+        function runFireSimulation() {
+            // Clear previous errors
+            const errorMsg = document.getElementById('error-message');
+            errorMsg.classList.add('hidden');
+            
+            // === 1. GET ALL FORM VALUES ===
+            const CURRENT_AGE = parseFloat(document.getElementById('currentAge').value);
+            const RETIREMENT_AGE = parseFloat(document.getElementById('retirementAge').value);
+            const INITIAL_SALARY = parseFloat(document.getElementById('initialSalary').value);
+            const pv_401k = parseFloat(document.getElementById('pv_401k').value);
+            const pv_roth_ira = parseFloat(document.getElementById('pv_roth_ira').value);
+            const pv_brokerage = parseFloat(document.getElementById('pv_brokerage').value);
+            const pv_hsa = parseFloat(document.getElementById('pv_hsa').value);
+            const pv_crypto = parseFloat(document.getElementById('pv_crypto').value);
+            
+            // Allocations
+            const brokerage_alloc_equity = parseFloat(document.getElementById('brokerage_alloc_equity').value);
+            const brokerage_alloc_intl = parseFloat(document.getElementById('brokerage_alloc_intl').value);
+            const brokerage_alloc_bonds = parseFloat(document.getElementById('brokerage_alloc_bonds').value);
+            const brokerage_alloc_gold = parseFloat(document.getElementById('brokerage_alloc_gold').value);
+            const brokerage_alloc_crypto = parseFloat(document.getElementById('brokerage_alloc_crypto').value);
+            
+            const roth_ira_alloc_equity = parseFloat(document.getElementById('roth_ira_alloc_equity').value);
+            const roth_ira_alloc_intl = parseFloat(document.getElementById('roth_ira_alloc_intl').value);
+            const roth_ira_alloc_bonds = parseFloat(document.getElementById('roth_ira_alloc_bonds').value);
+            const roth_ira_alloc_gold = parseFloat(document.getElementById('roth_ira_alloc_gold').value);
+            const roth_ira_alloc_crypto = parseFloat(document.getElementById('roth_ira_alloc_crypto').value);
+
+            const hsa_alloc_equity = parseFloat(document.getElementById('hsa_alloc_equity').value);
+            const hsa_alloc_intl = parseFloat(document.getElementById('hsa_alloc_intl').value);
+            const hsa_alloc_bonds = parseFloat(document.getElementById('hsa_alloc_bonds').value);
+            const hsa_alloc_gold = parseFloat(document.getElementById('hsa_alloc_gold').value);
+            const hsa_alloc_crypto = parseFloat(document.getElementById('hsa_alloc_crypto').value);
+            
+            // Savings
+            const base_contrib_401k = parseFloat(document.getElementById('base_contrib_401k').value);
+            const base_contrib_roth_ira = parseFloat(document.getElementById('base_contrib_roth_ira').value);
+            const base_contrib_brokerage = parseFloat(document.getElementById('base_contrib_brokerage').value);
+            const base_contrib_hsa = parseFloat(document.getElementById('base_contrib_hsa').value);
+            const base_contrib_crypto = parseFloat(document.getElementById('base_contrib_crypto').value);
+
+            // Spillover Allocation
+            const spillover_alloc_brokerage = parseFloat(document.getElementById('spillover_alloc_brokerage').value);
+            const spillover_alloc_crypto = parseFloat(document.getElementById('spillover_alloc_crypto').value);
+            
+            // Goal
+            const TARGET_ANNUAL_SPENDING_TODAY = parseFloat(document.getElementById('targetSpending').value);
+            const WITHDRAWAL_RATE = parseFloat(document.getElementById('withdrawalRate').value);
+            
+            // Assumptions
+            const SALARY_RAISE_RATE = parseFloat(document.getElementById('salaryRaiseRate').value);
+            const EMPLOYER_MATCH_RATE = parseFloat(document.getElementById('employerMatchRate').value);
+            const GENERAL_INFLATION_RATE = parseFloat(document.getElementById('generalInflation').value);
+            const LIMIT_INFLATION_RATE = parseFloat(document.getElementById('limitInflation').value);
+            
+            // Asset Returns
+            const r_equity = parseFloat(document.getElementById('r_equity').value);
+            const r_international = parseFloat(document.getElementById('r_international').value);
+            const r_bonds = parseFloat(document.getElementById('r_bonds').value);
+            const r_gold = parseFloat(document.getElementById('r_gold').value);
+            const r_crypto = parseFloat(document.getElementById('r_crypto').value);
+
+            // === 2. VALIDATE ALLOCATION INPUTS ===
+            const brokerageTotal = brokerage_alloc_equity + brokerage_alloc_intl + brokerage_alloc_bonds + brokerage_alloc_gold + brokerage_alloc_crypto;
+            const rothIraTotal = roth_ira_alloc_equity + roth_ira_alloc_intl + roth_ira_alloc_bonds + roth_ira_alloc_gold + roth_ira_alloc_crypto;
+            const hsaTotal = hsa_alloc_equity + hsa_alloc_intl + hsa_alloc_bonds + hsa_alloc_gold + hsa_alloc_crypto;
+            const spilloverTotal = spillover_alloc_brokerage + spillover_alloc_crypto; 
+
+            if (Math.round(brokerageTotal) !== 100 || Math.round(rothIraTotal) !== 100 || Math.round(hsaTotal) !== 100 || Math.round(spilloverTotal) !== 100) {
+                 errorMsg.textContent = `One or more allocation sections (Brokerage: ${brokerageTotal}%, Roth IRA: ${rothIraTotal}%, HSA: ${hsaTotal}%, Spillover: ${spilloverTotal}%) do not equal 100%. Please check your inputs.`;
+                 errorMsg.classList.remove('hidden');
+                 document.getElementById('results-loading').classList.add('hidden');
+                 return;
+            }
+
+            // === 3. CALCULATE WEIGHTED RETURNS ===
+            const r_brokerage_weighted = (brokerage_alloc_equity / 100 * r_equity) +
+                                         (brokerage_alloc_intl / 100 * r_international) +
+                                         (brokerage_alloc_bonds / 100 * r_bonds) +
+                                         (brokerage_alloc_gold / 100 * r_gold) +
+                                         (brokerage_alloc_crypto / 100 * r_crypto);
+            
+            const r_roth_ira_weighted = (roth_ira_alloc_equity / 100 * r_equity) +
+                                        (roth_ira_alloc_intl / 100 * r_international) +
+                                        (roth_ira_alloc_bonds / 100 * r_bonds) +
+                                        (roth_ira_alloc_gold / 100 * r_gold) +
+                                        (roth_ira_alloc_crypto / 100 * r_crypto);
+
+            const r_hsa_weighted = (hsa_alloc_equity / 100 * r_equity) +
+                                   (hsa_alloc_intl / 100 * r_international) +
+                                   (hsa_alloc_bonds / 100 * r_bonds) +
+                                   (hsa_alloc_gold / 100 * r_gold) +
+                                   (hsa_alloc_crypto / 100 * r_crypto);
+
+            const annual_returns = {
+                '401k': r_equity,
+                'Roth IRA': r_roth_ira_weighted, 
+                'Brokerage': r_brokerage_weighted,
+                'HSA': r_hsa_weighted,
+                'Crypto': r_crypto
+            };
+            
+            // === 4. SET LEGAL LIMITS (2025 base) ===
+            const base_limits = {
+                '401k': 24500.0, 
+                'IRA': 7500.0,
+                'HSA': 4400.0
+            };
+
+            // === 5. RUN SIMULATION (FIXED LOGIC) ===
+            const n_years_to_retire = RETIREMENT_AGE - CURRENT_AGE;
+            let projection_data = [];
+            
+            let pv = {
+                '401k': pv_401k,
+                'Roth IRA': pv_roth_ira,
+                'Brokerage': pv_brokerage,
+                'HSA': pv_hsa,
+                'Crypto': pv_crypto
+            };
+            
+            let current_salary = INITIAL_SALARY;
+            let waterfall_milestones = [];
+
+            // Run loop for the number of years between current age and retirement age
+            for (let year = 1; year <= n_years_to_retire; year++) {
+                const age = CURRENT_AGE + year;
+                
+                // 1. Calculate salary and raise
+                const prev_salary = current_salary;
+                current_salary = INITIAL_SALARY * Math.pow(1 + SALARY_RAISE_RATE, year); 
+                const raise_amount = current_salary - prev_salary;
+                
+                // The exponent for inflation/raise rate for contributions in Year N is N-1 
+                // because Year 1 contributions use the rate from the previous year (Year 0).
+                const inflation_multiplier = year - 1;
+
+                // 2. Get current legal limits (inflated)
+                const current_401k_limit = base_limits['401k'] * Math.pow(1 + LIMIT_INFLATION_RATE, inflation_multiplier);
+                const current_ira_limit = base_limits['IRA'] * Math.pow(1 + LIMIT_INFLATION_RATE, inflation_multiplier);
+                const current_hsa_limit = base_limits['HSA'] * Math.pow(1 + LIMIT_INFLATION_RATE, inflation_multiplier);
+                
+                // 3. Calculate "Base" Contributions for this year (inflated)
+                // Use MAX(0, ...) to prevent small negative numbers if raise rate is 0
+                let contrib_hsa = base_contrib_hsa * Math.pow(1 + SALARY_RAISE_RATE, inflation_multiplier);
+                let contrib_roth_ira = base_contrib_roth_ira * Math.pow(1 + SALARY_RAISE_RATE, inflation_multiplier);
+                let contrib_401k_employee = base_contrib_401k; 
+                let contrib_brokerage = base_contrib_brokerage * Math.pow(1 + SALARY_RAISE_RATE, inflation_multiplier);
+                let contrib_crypto = base_contrib_crypto * Math.pow(1 + SALARY_RAISE_RATE, inflation_multiplier);
+
+                // Ensure base contributions don't start higher than limits
+                contrib_hsa = Math.min(contrib_hsa, current_hsa_limit);
+                contrib_roth_ira = Math.min(contrib_roth_ira, current_ira_limit);
+                
+                let spillover_money = raise_amount;
+
+                // --- 5C. Execute Optimal Waterfall with Raise Money ---
+
+                // 1. Fill HSA
+                let hsa_room_left = Math.max(0, current_hsa_limit - contrib_hsa);
+                let to_hsa = Math.min(spillover_money, hsa_room_left);
+                contrib_hsa += to_hsa;
+                spillover_money = Math.max(0, spillover_money - to_hsa);
+                if (to_hsa > 0 && hsa_room_left === to_hsa && !waterfall_milestones.includes('HSA')) {
+                    waterfall_milestones.push(`HSA maxed at Age ${age}`);
+                }
+
+                // 2. Fill Roth IRA
+                let roth_room_left = Math.max(0, current_ira_limit - contrib_roth_ira);
+                let to_roth = Math.min(spillover_money, roth_room_left);
+                contrib_roth_ira += to_roth;
+                spillover_money = Math.max(0, spillover_money - to_roth);
+                if (to_roth > 0 && roth_room_left === to_roth && !waterfall_milestones.includes('Roth')) {
+                    waterfall_milestones.push(`Roth IRA maxed at Age ${age}`);
+                }
+
+                // 3. Fill 401k
+                let k401_room_left = Math.max(0, current_401k_limit - contrib_401k_employee);
+                let to_401k = Math.min(spillover_money, k401_room_left);
+                contrib_401k_employee += to_401k;
+                spillover_money = Math.max(0, spillover_money - to_401k);
+                if (to_401k > 0 && k401_room_left === to_401k && !waterfall_milestones.includes('401k')) {
+                    waterfall_milestones.push(`401k maxed at Age ${age}`);
+                }
+
+                // 4. Final Spillover to Brokerage/Crypto
+                if (spillover_money > 0) {
+                    contrib_brokerage += spillover_money * (spillover_alloc_brokerage / 100);
+                    contrib_crypto += spillover_money * (spillover_alloc_crypto / 100);
+                    if (!waterfall_milestones.includes('Spillover')) {
+                         waterfall_milestones.push(`Taxable spillover at Age ${age}`);
+                    }
+                }
+
+                // --- 5D. Final Contributions (ensure they don't exceed limits) ---
+                const final_contrib_hsa = Math.min(contrib_hsa, current_hsa_limit);
+                const final_contrib_roth_ira = Math.min(contrib_roth_ira, current_ira_limit);
+                const final_contrib_401k_employee = Math.min(contrib_401k_employee, current_401k_limit);
+
+                // Use the new calculated salary for employer match
+                const employer_match_c = current_salary * EMPLOYER_MATCH_RATE;
+                const total_401k_c = final_contrib_401k_employee + employer_match_c;
+                
+                // --- 5E. Calculate Future Values (End-of-Year Contribution) ---
+                
+                // Apply compounding growth to previous year's balance
+                pv['401k'] *= (1 + annual_returns['401k']);
+                pv['Roth IRA'] *= (1 + annual_returns['Roth IRA']);
+                pv['Brokerage'] *= (1 + annual_returns['Brokerage']);
+                pv['HSA'] *= (1 + annual_returns['HSA']);
+                pv['Crypto'] *= (1 + annual_returns['Crypto']);
+                
+                // Add this year's contributions (end of year)
+                pv['401k'] += total_401k_c;
+                pv['Roth IRA'] += final_contrib_roth_ira;
+                pv['Brokerage'] += contrib_brokerage;
+                pv['HSA'] += final_contrib_hsa;
+                pv['Crypto'] += contrib_crypto;
+                
+                const total_portfolio = Object.values(pv).reduce((a, b) => a + b, 0);
+                const total_contributions = total_401k_c + final_contrib_roth_ira + contrib_brokerage + final_contrib_hsa + contrib_crypto;
+                
+                projection_data.push({
+                    'age': age,
+                    'salary': current_salary,
+                    'totalPortfolio': total_portfolio,
+                    '401k': pv['401k'],
+                    'rothIRA': pv['Roth IRA'],
+                    'brokerage': pv['Brokerage'],
+                    'hsa': pv['HSA'],
+                    'crypto': pv['Crypto'],
+                    'totalContributions': total_contributions
+                });
+            }
+
+            // === 6. DISPLAY RESULTS ===
+            if (projection_data.length === 0) {
+                errorMsg.textContent = "Cannot run simulation for 0 years. Please increase Retirement Age.";
+                errorMsg.classList.remove('hidden');
+                document.getElementById('results-loading').classList.add('hidden');
+                return;
+            }
+            const final_row = projection_data[projection_data.length - 1];
+            const final_portfolio = final_row.totalPortfolio;
+            const final_inflated_spending = TARGET_ANNUAL_SPENDING_TODAY * Math.pow(1 + GENERAL_INFLATION_RATE, n_years_to_retire);
+            const final_target_fire_number = final_inflated_spending / WITHDRAWAL_RATE;
+            const final_surplus_shortfall = final_portfolio - final_target_fire_number;
+            const sustainable_spending_nominal = final_portfolio * WITHDRAWAL_RATE;
+            
+            document.getElementById('resultTarget').textContent = formatCurrency(final_target_fire_number);
+            document.getElementById('resultPortfolio').textContent = formatCurrency(final_portfolio);
+            document.getElementById('resultSurplus').textContent = formatCurrency(final_surplus_shortfall);
+            document.getElementById('resultRetirementAge').textContent = `Age ${RETIREMENT_AGE}`;
+            document.getElementById('resultGoalSpend').textContent = formatCurrency(final_inflated_spending);
+            document.getElementById('resultSustainableSpend').textContent = formatCurrency(sustainable_spending_nominal);
+            
+            if(final_surplus_shortfall < 0) {
+                document.getElementById('resultSurplus').classList.remove('text-white', 'text-green-400');
+                document.getElementById('resultSurplus').classList.add('text-red-400');
+            } else {
+                document.getElementById('resultSurplus').classList.remove('text-white', 'text-red-400');
+                document.getElementById('resultSurplus').classList.add('text-green-400');
+            }
+            
+            // Display waterfall milestones
+            if (waterfall_milestones.length > 0) {
+                document.getElementById('waterfallMilestone').textContent = `Waterfall Milestones: ${waterfall_milestones.join(', ')}.`;
+            } else {
+                document.getElementById('waterfallMilestone').textContent = 'Waterfall Milestone: No accounts maxed out during simulation.';
+            }
+            
+            const tableBody = document.getElementById('resultsTableBody');
+            tableBody.innerHTML = '';
+            
+            // Start the table at the age after current age
+            const starting_age = CURRENT_AGE + 1;
+            
+            projection_data.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-700/50';
+                row.innerHTML = `
+                    <td class="p-4 text-gray-200">${item.age}</td>
+                    <td class="p-4 text-white font-semibold">${formatCurrency(item.totalPortfolio)}</td>
+                    <td class="p-4 text-gray-300">${formatCurrency(item['401k'])}</td>
+                    <td class="p-4 text-gray-300">${formatCurrency(item.rothIRA)}</td>
+                    <td class="p-4 text-gray-300">${formatCurrency(item.brokerage)}</td>
+                    <td class="p-4 text-gray-300">${formatCurrency(item.hsa)}</td>
+                    <td class="p-4 text-gray-300">${formatCurrency(item.crypto)}</td>
+                    <td class="p-4 text-gray-300">${formatCurrency(item.totalContributions)}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+            
+            document.getElementById('results-loading').classList.add('hidden');
+            document.getElementById('results-card').classList.remove('hidden');
+        }
+
+        // --- 7. ADD EVENT LISTENERS ---
+        document.getElementById('runButton').addEventListener('click', () => {
+            document.getElementById('results-card').classList.add('hidden');
+            document.getElementById('results-loading').classList.remove('hidden');
+            // Use setTimeout to allow the UI to update with the loading spinner
+            setTimeout(runFireSimulation, 0); 
+        });
+
+        // Setup the live allocation updaters when the page loads
+        document.addEventListener('DOMContentLoaded', setupAllocationUpdater);
+    </script>
+</body>
+</html>

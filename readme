@@ -1,0 +1,209 @@
+How to Update Your Website
+
+Hello Vincent. This guide explains how to add new content to your website.
+
+The entire site is dynamic. You only need to edit one file: content.json.
+
+The Core Concept
+
+You edit content.json: You add a new JSON "object" (a new post) to the top of this file.
+
+The "Category" is Key: The "category" you assign to your new post tells the website where it should appear.
+
+The Site Updates Automatically:
+
+Hub Pages (like tattoos.html or index.html) will show the 6 newest posts for their category.
+
+Archive Pages (like tattoos-all.html) will show all posts for that category, with the newest at the top.
+
+The "Category" System: Where to Post Content
+
+This is the most important part. Use the correct "category" to make your post appear on the right pages.
+
+Category
+
+Hub Page (Latest 6)
+
+Archive Page (All Posts)
+
+home
+
+home-improvement.html
+
+home-improvement-all.html
+
+tattoo
+
+tattoos.html
+
+tattoos-all.html
+
+tech
+
+technology.html
+
+technology-all.html
+
+investment
+
+investments.html
+
+investments-all.html
+
+anime-review
+
+anime.html
+
+anime-reviews.html
+
+recipe
+
+food.html (mixed feed)
+
+food-recipes.html
+
+review
+
+food.html (mixed feed)
+
+food-reviews.html
+
+youtube
+
+index.html (mixed feed)
+
+(No archive, lives on Home)
+
+x-post
+
+index.html (mixed feed)
+
+(No archive, lives on Home)
+
+Note: index.html shows the 6 newest posts from ALL categories combined.
+
+How to Add a New Post (Step-by-Step)
+
+Open the content.json file.
+
+Go to the very top of the file, right after the first [ bracket.
+
+Paste your new content object.
+
+CRITICAL: Add a comma (,) after the closing } brace of your new post. This separates it from the next post.
+
+Example: Adding a New Post
+
+Your content.json file before:
+
+
+    {
+        "id": "",
+        "date": "2025-11-11",
+        "category": "",
+        "title": "",
+        "description": "",
+        "imageUrl": "",
+        "linkUrl": "",
+        "aspect": ""
+    },
+
+
+
+
+
+Your content.json file after adding a new "Tattoo" post:
+
+[
+    {
+        "id": "tattoo-29",
+        "date": "2025-11-12",
+        "category": "tattoo",
+        "title": "New Hand Tattoo",
+        "description": "Just got this new piece done on my left hand.",
+        "imageUrl": "images/new-hand-tattoo.png",
+        "linkUrl": "images/new-hand-tattoo.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "home-2",
+        "date": "2025-11-11",
+        "category": "home",
+        "title": "Project: New Deck Stairs",
+        "description": "Finished building the new stairs for the back deck. Much safer now!",
+        "imageUrl": "[https://placehold.co/600x400/1f2937/d1d5db?text=Deck+Stairs](https://placehold.co/600x400/1f2937/d1d5db?text=Deck+Stairs)",
+        "linkUrl": "#",
+        "aspect": "aspect-video"
+    },
+    {
+        "id": "tattoo-28",
+...
+
+
+Notice the new object was added at the top, and a comma was added after it.
+
+Special Examples: YouTube and X Posts
+
+Here are the specific examples you asked for. These will show up on your main index.html page.
+
+Example: How to Add a YouTube Video
+
+To add a YouTube video, you need the Video ID (the random letters in the URL).
+
+URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+Video ID: dQw4w9WgXcQ
+
+Use this ID to create the linkUrl and the imageUrl (for the thumbnail).
+
+{
+    "id": "youtube-2",
+    "date": "2025-11-12",
+    "category": "youtube",
+    "title": "My Newest YouTube Video is Live!",
+    "description": "Check out my latest video on my (placeholder) channel.",
+    "imageUrl": "https:__//[img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg](https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg)",
+    "linkUrl": "https:__//[www.youtube.com/watch?v=dQw4w9WgXcQ](https://www.youtube.com/watch?v=dQw4w9WgXcQ)",
+    "aspect": "aspect-video"
+}
+
+
+(Just replace dQw4w9WgXcQ with your real video's ID.)
+
+Example: How to Add an X (Twitter) Post
+
+Find the link to your post on X. For the image, it's best to use a placeholder, as X images are hard to link to directly.
+
+{
+    "id": "x-post-2",
+    "date": "2025-11-12",
+    "category": "x-post",
+    "title": "My Latest Thoughts on X",
+    "description": "Just posted a new thread about the current crypto market. Check it out!",
+    "imageUrl": "[https://placehold.co/600x400/1f2937/d1d5db?text=X+Post](https://placehold.co/600x400/1f2937/d1d5db?text=X+Post)",
+    "linkUrl": "https:__//[x.com/Tattooed_Techy/status/1234567890](https://x.com/Tattooed_Techy/status/1234567890)",
+    "aspect": "aspect-video"
+}
+
+
+Post Object: Field Reference
+
+id: (String) A unique ID for the post. (e.g., "tattoo-29", "home-3").
+
+date: (String) The date of the post in YYYY-MM-DD format. This is used for sorting.
+
+category: (String) The most important field. Use the table above to choose.
+
+title: (String) The title of your post.
+
+description: (String) The short description text.
+
+imageUrl: (String) The URL for the image. Can be a local path (images/my-image.png) or a full URL (https://...).
+
+linkUrl: (String) The URL the card will link to when clicked. (e.g., a YouTube video, an X post, or just a link to the image itself).
+
+aspect: (String) Controls the shape of the image.
+
+Use "aspect-video" for rectangular images (16:9 ratio, good for projects, YouTube).
+
+Use "aspect-square" for square images (1:1 ratio, good for tattoos, recipes).

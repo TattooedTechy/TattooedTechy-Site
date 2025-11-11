@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title changed for new page -->
+    <title>TattooedTechy - Watching Anime</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        body { font-family: 'Inter', 'sans-serif'; color: #d1d5db; }
+        nav a.active { color: #38bdf8; }
+        #mobile-menu a.active-mobile { color: #38bdf8; background-color: #1f2937; }
+        /* Style for the search bar */
+        #anime-search:focus {
+            box-shadow: 0 0 0 2px #38bdf8;
+        }
+    </style>
+</head>
+<body class="antialiased bg-cover bg-center bg-fixed" style="background-image: url('images/banner1.jpg');">
+
+    <div class="flex flex-col min-h-screen">
+        <!-- HEADER (Anime is Active) -->
+        <header class="sticky top-0 z-10 shadow-lg">
+            <div class="bg-gray-900/80 backdrop-blur-md">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-24">
+                        <div class="flex-shrink-0">
+                            <a href="index.html" class="flex items-center space-x-4">
+                                <img class="h-16 w-16 rounded-full border-2 border-sky-400" 
+                                     src="images/avatar.jpg" 
+                                     alt="Avatar"
+                                     onerror="this.src='https://placehold.co/100x100/1f2937/d1d5db?text=T'; this.onerror=null;">
+                                <span class="text-3xl font-bold text-white">
+                                    TattooedTechy.ETH
+                                </span>
+                            </a>
+                        </div>
+                        <nav class="hidden md:flex md:space-x-4 lg:space-x-6">
+                            <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Home</a>
+                            <a href="tattoos.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Tattoos</a>
+                            <a href="anime.html" class="active px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Anime</a>
+                            <a href="technology.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Technology</a>
+                            <a href="investments.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Investments</a>
+                            <a href="home-improvement.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Home Improvement</a>
+                            <a href="food.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white">Foodies</a>
+                        </nav>
+                        <div class="md:hidden flex items-center">
+                            <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-400">
+                                <span class="sr-only">Open main menu</span>
+                                <ion-icon name="menu-outline" class="block h-6 w-6" id="menu-closed-icon"></ion-icon>
+                                <ion-icon name="close-outline" class="hidden h-6 w-6" id="menu-open-icon"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:hidden hidden bg-gray-900/90 backdrop-blur-md" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Home</a>
+                    <a href="tattoos.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Tattoos</a>
+                    <a href="anime.html" class="active-mobile block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Anime</a>
+                    <a href="technology.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Technology</a>
+                    <a href="investments.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Investments</a>
+                    <a href="home-improvement.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Home Improvement</a>
+                    <a href="food.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50">Foodies</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="flex-grow">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+                <div class="bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden">
+                    
+                    <!-- Page Title & NEW Search Bar -->
+                    <div class="p-6 md:p-10 border-b border-gray-700/50">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center gap-4">
+                            <div>
+                                <h1 class="text-4xl font-bold text-white">
+                                    Currently Watching
+                                </h1>
+                                <p class="text-lg text-gray-300 mt-1">A live feed from my AniList.co profile.</p>
+                            </div>
+                            <!-- NEW Search Bar -->
+                            <div class="relative w-full md:w-72">
+                                <input type="text" id="anime-search" placeholder="Search this list..." class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-sky-400">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <ion-icon name="search-outline" class="text-gray-400"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Page Content -->
+                    <div class="prose prose-invert prose-lg max-w-none text-gray-300 p-6 md:p-10">
+                        
+                        <!-- ANILIST LIVE FEED -->
+                        <div id="anilist-feed" class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            
+                            <!-- Loading State Card -->
+                            <div id="anilist-loading" class="bg-gray-800/50 rounded-2xl shadow-lg p-6 md:col-span-2 lg:col-span-3 flex items-center justify-center space-x-4">
+                                <svg class="animate-spin h-8 w-8 text-sky-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span class="text-xl font-semibold text-gray-300">Loading live AniList feed...</span>
+                            </div>
+                            <!-- This is where the script will add the anime cards -->
+                        </div>
+                        
+                        <!-- No Results Message (Hidden) -->
+                        <div id="no-results-message" class="hidden text-center text-gray-400 py-12 md:col-span-3">
+                            <p class="text-xl">No anime found matching that title.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900/80 backdrop-blur-md border-t border-gray-700/50">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+                <p>&copy; 2025 TattooedTechy.ETH. All rights reserved.</p>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="https://x.com/@Tattooed_Techy" class="hover:text-sky-400">
+                        <span class="sr-only">X (Twitter)</span>
+                        <ion-icon name="logo-x" class="h-6 w-6"></ion-icon>
+                    </a>
+                    <a href="https://youtube.com/@Tattooed_Techy" class="hover:text-sky-400">
+                        <span class="sr-only">YouTube</span>
+                        <ion-icon name="logo-youtube" class="h-6 w-6"></ion-icon>
+                    </a>
+                    <a href="https://discord.gg/9BkeFcaz" class="hover:text-sky-400">
+                        <span class="sr-only">Discord</span>
+                        <ion-icon name="logo-discord" class="h-6 w-6"></ion-icon>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openIcon = document.getElementById('menu-closed-icon');
+        const closeIcon = document.getElementById('menu-open-icon');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            openIcon.classList.toggle('block');
+            closeIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('block');
+        });
+    </script>
+
+    <!-- ANILIST API SCRIPT -->
+    <script>
+        // --- 1. SET YOUR USERNAME HERE ---
+        const anilistUsername = "TattooedTechy"; // <-- !!! CHANGE THIS TO YOURS
+        
+        // --- 2. DEFINE THE GRAPHQL QUERY (Currently Watching) ---
+        const query = `
+        query ($username: String) {
+            MediaListCollection(userName: $username, type: ANIME, status: CURRENT) {
+                lists {
+                    entries {
+                        progress
+                        media {
+                            id
+                            title {
+                                romaji
+                                english
+                            }
+                            coverImage {
+                                large
+                            }
+                            episodes
+                            nextAiringEpisode {
+                                episode
+                            }
+                            siteUrl
+                        }
+                    }
+                }
+            }
+        }
+        `;
+
+        // --- 3. DEFINE THE API CALL FUNCTION ---
+        async function fetchAniListData() {
+            const feedContainer = document.getElementById('anilist-feed');
+            const loadingIndicator = document.getElementById('anilist-loading');
+
+            try {
+                const response = await fetch('https://graphql.anilist.co', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query: query,
+                        variables: { username: anilistUsername }
+                    })
+                });
+
+                const data = await response.json();
+                const watchingList = data.data.MediaListCollection.lists[0]?.entries;
+                loadingIndicator.style.display = 'none';
+
+                if (!watchingList || watchingList.length === 0) {
+                    feedContainer.innerHTML = '<p class="text-gray-400 md:col-span-3 text-center">No currently watching anime found on AniList.</p>';
+                    return;
+                }
+
+                // --- 4. BUILD AND INJECT HTML CARDS ---
+                watchingList.forEach(item => {
+                    const media = item.media;
+                    const title = media.title.english || media.title.romaji;
+                    const totalEpisodes = media.episodes || '?';
+                    const progress = item.progress || '0';
+                    const nextEpisode = media.nextAiringEpisode ? `Next: Ep ${media.nextAiringEpisode.episode}` : 'Finished Airing';
+
+                    // Add 'anilist-card' class for the search
+                    const card = `
+                    <div class="anilist-card bg-gray-800/50 rounded-2xl shadow-lg overflow-hidden flex flex-col">
+                        <a href="${media.siteUrl}" target="_blank" rel="noopener noreferrer">
+                            <img src="${media.coverImage.large}" alt="${title}" class="w-full h-auto object-cover aspect-[2/3]">
+                        </a>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="card-title text-xl font-semibold text-white">
+                                <a href="${media.siteUrl}" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400">
+                                    ${title}
+                                </a>
+                            </h3>
+                            <p class="text-sky-300 mt-2">Progress: ${progress} / ${totalEpisodes}</p>
+                            <p class="text-sm text-gray-400 mt-1">${nextEpisode}</p>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-auto pt-4">
+                                <div class="bg-sky-500 h-2.5 rounded-full" style="width: ${(progress / totalEpisodes) * 100}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    feedContainer.innerHTML += card;
+                });
+
+                // ******************************************************
+                // *** FIX: Call setupSearch() AFTER cards are loaded ***
+                // ******************************************************
+                setupSearch();
+                
+            } catch (error) {
+                console.error('Error fetching AniList data:', error);
+                loadingIndicator.style.display = 'none';
+                feedContainer.innerHTML = '<p class="text-red-400 md:col-span-3 text-center">Failed to load AniList feed. Check the console for errors.</p>';
+            }
+        }
+        
+        // --- 5. NEW: SEARCH FUNCTION ---
+        function setupSearch() {
+            const searchInput = document.getElementById('anime-search');
+            const noResultsMessage = document.getElementById('no-results-message');
+
+            searchInput.addEventListener('keyup', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const allCards = document.querySelectorAll('.anilist-card');
+                let visibleCount = 0;
+
+                allCards.forEach(card => {
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    if (title.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Show "no results" message if no cards are visible
+                if (visibleCount === 0 && allCards.length > 0) {
+                    noResultsMessage.style.display = 'block';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                }
+            });
+        }
+
+        // --- 6. RUN FUNCTIONS (FIXED) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAniListData();
+            // setupSearch() is now called inside fetchAniListData() after the cards are loaded.
+        });
+    </script>
+
+</body>
+</html>

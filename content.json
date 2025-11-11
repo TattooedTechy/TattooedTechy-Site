@@ -1,0 +1,272 @@
+[
+    {
+        "id": "tattoo-28",
+        "date": "2025-11-10",
+        "category": "tattoo",
+        "title": "Kiss of Death & Bird (Full)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kd_bird.png",
+        "linkUrl": "images/kd_bird.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-27",
+        "date": "2025-11-09",
+        "category": "tattoo",
+        "title": "Kiss of Death (Part 2)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kisspfdeath2.png",
+        "linkUrl": "images/kisspfdeath2.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-26",
+        "date": "2025-11-08",
+        "category": "tattoo",
+        "title": "Kiss of Death (Part 3)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kissofdeath3.png",
+        "linkUrl": "images/kissofdeath3.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-25",
+        "date": "2025-11-07",
+        "category": "tattoo",
+        "title": "Kiss of Death (Part 4)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kissofdeath4.png",
+        "linkUrl": "images/kissofdeath4.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-24",
+        "date": "2025-11-06",
+        "category": "tattoo",
+        "title": "Kiss of Death (Part 5)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kissofdeath5.png",
+        "linkUrl": "images/kissofdeath5.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-23",
+        "date": "2025-11-05",
+        "category": "tattoo",
+        "title": "Kiss of Death (Part 6)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kissofdeath6.png",
+        "linkUrl": "images/kissofdeath6.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-22",
+        "date": "2025-11-04",
+        "category": "tattoo",
+        "title": "Kiss of Death (Part 7)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kissofdeath7.png",
+        "linkUrl": "images/kissofdeath7.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-21",
+        "date": "2025-11-03",
+        "category": "tattoo",
+        "title": "Bird (Part 1)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/bird.png",
+        "linkUrl": "images/bird.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-20",
+        "date": "2025-11-02",
+        "category": "tattoo",
+        "title": "Bird (Part 2)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/bird2.png",
+        "linkUrl": "images/bird2.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-19",
+        "date": "2025-11-01",
+        "category": "tattoo",
+        "title": "Kiss of Death (Part 1)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kissofdeath.png",
+        "linkUrl": "images/kissofdeath.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-18",
+        "date": "2025-10-31",
+        "category": "tattoo",
+        "title": "Kyubi (Part 1)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/Kyubi1.png",
+        "linkUrl": "images/Kyubi1.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-17",
+        "date": "2025-10-30",
+        "category": "tattoo",
+        "title": "Kyubi (Part 2)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kyubi2.png",
+        "linkUrl": "images/kyubi2.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-16",
+        "date": "2025-10-29",
+        "category": "tattoo",
+        "title": "Kyubi (Part 3)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kyubi3.png",
+        "linkUrl": "images/kyubi3.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-15",
+        "date": "2025-10-28",
+        "category": "tattoo",
+        "title": "Kyubi (Part 4)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/kyubi4.png",
+        "linkUrl": "images/kyubi4.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-14",
+        "date": "2025-10-27",
+        "category": "tattoo",
+        "title": "Red Moon",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/redmoon.png",
+        "linkUrl": "images/redmoon.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-13",
+        "date": "2025-10-26",
+        "category": "tattoo",
+        "title": "Human Kyubi (Part 1)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/humankyubi1.png",
+        "linkUrl": "images/humankyubi1.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-12",
+        "date": "2025-10-25",
+        "category": "tattoo",
+        "title": "Human Kyubi (Part 2)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/humankyubi2.png",
+        "linkUrl": "images/humankyubi2.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-11",
+        "date": "2025-10-24",
+        "category": "tattoo",
+        "title": "Human Kyubi (Part 3)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/humankyubi3.png",
+        "linkUrl": "images/humankyubi3.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-10",
+        "date": "2025-10-23",
+        "category": "tattoo",
+        "title": "Human Kyubi (Part 4)",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/humankyubi4.png",
+        "linkUrl": "images/humankyubi4.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-9",
+        "date": "2025-10-22",
+        "category": "tattoo",
+        "title": "Arm Touch up",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/IMG_1120.png",
+        "linkUrl": "images/IMG_1120.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-8",
+        "date": "2025-10-21",
+        "category": "tattoo",
+        "title": "Back Piece (Part 1)",
+        "description": "Artist: Dub",
+        "imageUrl": "images/back.png",
+        "linkUrl": "images/back.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-7",
+        "date": "2025-10-20",
+        "category": "tattoo",
+        "title": "Back Piece (Part 2)",
+        "description": "Artist: Dub",
+        "imageUrl": "images/back2.png",
+        "linkUrl": "images/back2.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-6",
+        "date": "2025-10-19",
+        "category": "tattoo",
+        "title": "Leg Piece (Part 1)",
+        "description": "Artist: Dub",
+        "imageUrl": "images/leg.png",
+        "linkUrl": "images/leg.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-5",
+        "date": "2025-10-18",
+        "category": "tattoo",
+        "title": "Leg Piece (Part 2)",
+        "description": "Artist: Dub",
+        "imageUrl": "images/leg2.png",
+        "linkUrl": "images/leg2.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-4",
+        "date": "2025-10-17",
+        "category": "tattoo",
+        "title": "Leg Piece (Part 3)",
+        "description": "Artist: Dub",
+        "imageUrl": "images/leg3.png",
+        "linkUrl": "images/leg3.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-3",
+        "date": "2025-10-16",
+        "category": "tattoo",
+        "title": "Leg Piece (Part 4)",
+        "description": "Artist: Dub",
+        "imageUrl": "images/leg4.png",
+        "linkUrl": "images/leg4.png",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tattoo-2",
+        "date": "2025-10-15",
+        "category": "tattoo",
+        "title": "Foot Tattoo",
+        "description": "Artist: Dan Mattingly",
+        "imageUrl": "images/foot.png",
+        "linkUrl": "images/foot.png",
+        "aspect": "aspect-square"
+    }
+]
