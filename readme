@@ -20,65 +20,25 @@ The "Category" System: Where to Post Content
 
 This is the most important part. Use the correct "category" to make your post appear on the right pages.
 
-Category
 
-Hub Page (Latest 6)
 
-Archive Page (All Posts)
+Category | Post to | Descrition
 
-home
+tattoo | tattoos.html, tattooes-all.html, index.html |	Pictures and progress updates of your tattoo work.
 
-home-improvement.html
+anime-review |	anime.html, anime-reviews.html, index.html |	Written reviews or longer-form thoughts on completed anime.
 
-home-improvement-all.html
+tech |	technology.html, technology-all.html, index.html |	Posts related to coding, Web3, and general technology projects/thoughts.
 
-tattoo
+investment |	investments.html, investments-all.html, index.html |	Market commentary, crypto updates, or financial thoughts.
 
-tattoos.html
+home |	home-improvement.html, home-improvement-all.html, index.html |	DIY projects and home improvement updates.
 
-tattoos-all.html
+recipe |	food.html, food-recipes.html, index.html |	Cooking guides and recommended recipes.
 
-tech
+review |	food.html, food-reviews.html, index.html |	Reviews of food products, restaurants, or specific dishes.
 
-technology.html
 
-technology-all.html
-
-investment
-
-investments.html
-
-investments-all.html
-
-anime-review
-
-anime.html
-
-anime-reviews.html
-
-recipe
-
-food.html (mixed feed)
-
-food-recipes.html
-
-review
-
-food.html (mixed feed)
-
-food-reviews.html
-
-youtube
-
-index.html (mixed feed)
-
-(No archive, lives on Home)
-
-x-post
-
-index.html (mixed feed)
-
-(No archive, lives on Home)
 
 Note: index.html shows the 6 newest posts from ALL categories combined.
 
@@ -99,7 +59,7 @@ Your content.json file before:
 
     {
         "id": "",
-        "date": "2025-11-11",
+        "date": "YYYY-MM-DD",
         "category": "",
         "title": "",
         "description": "",
