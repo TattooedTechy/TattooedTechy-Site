@@ -43,4 +43,4 @@ jobs:
               }
           }'
         env:
-          IPFS_CID: ${{ steps.pinata_deploy.outputs.cid }}
+          IPFS_CID: ${{ steps.pinata_deploy.outputs.cid }} 
