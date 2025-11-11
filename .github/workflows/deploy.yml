@@ -3,7 +3,7 @@ name: Deploy and Auto-Update IPNS
 on:
   push:
     branches:
-      - master # Run this workflow on pushes to the master branch
+      - master
 
 jobs:
   deploy:
@@ -12,18 +12,19 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # --- 1. DEPLOY TO IPFS (GET NEW CID) ---
-      - name: Deploy Site and Pin Content
-        uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
+      # --- 1. DEPLOY TO IPFS (USE NEW, MODERN ACTION) ---
+      - name: Deploy Site and Pin Content (aquiladev/ipfs-action)
+        uses: aquiladev/ipfs-action@v1.0.0 # Modern, maintained action
         id: pinata_deploy
         with:
-          pin-name: 'TattooedTechy-Hub-Latest'
           path: './' # Upload the entire repository root
-          pinata-api-key: ${{ secrets.PINATA_API_KEY }}
-          pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
-          remove-old: true
+          service: pinata # Specify Pinata service
+          pinataKey: ${{ secrets.PINATA_API_KEY }}
+          pinataSecret: ${{ secrets.PINATA_SECRET_API_KEY }}
+          pinName: 'TattooedTechy-Hub-Latest'
 
-      # --- 2. SETUP NODE.JS ENVIRONMENT ---
+      # --- 2. UPDATE IPNS (FORCE PUBLISH TO ALIAS) ---
+      # We use the Node.js environment to install and run a script to handle the IPNS update
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -32,10 +33,10 @@ jobs:
       - name: Install dependencies (axios)
         run: npm install axios
 
-      # --- 3. UPDATE IPNS (RUN CUSTOM SCRIPT) ---
       - name: Publish New CID to IPNS Key
         run: node ipns_publisher.js
         env:
           PINATA_JWT_TOKEN: ${{ secrets.PINATA_JWT_TOKEN }}
           IPNS_HASH: ${{ secrets.IPNS_HASH }}
+          # The aquiladev action exposes its output as 'cid'
           NEW_CID: ${{ steps.pinata_deploy.outputs.cid }}
