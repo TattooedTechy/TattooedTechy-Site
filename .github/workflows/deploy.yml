@@ -12,19 +12,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # --- 1. DEPLOY TO IPFS (USE NEW, MODERN ACTION) ---
-      - name: Deploy Site and Pin Content (aquiladev/ipfs-action)
-        uses: aquiladev/ipfs-action@v1.0.0 # Modern, maintained action
+      # --- 1. DEPLOY TO IPFS (USE HIGHLY STABLE ACTION) ---
+      # This action is often maintained and uses the latest environment variables.
+      - name: Deploy Site and Pin Content
+        uses: anhvudotnet/github-action-pinata@master # Use master branch resolution
         id: pinata_deploy
         with:
-          path: './' # Upload the entire repository root
-          service: pinata # Specify Pinata service
-          pinataKey: ${{ secrets.PINATA_API_KEY }}
-          pinataSecret: ${{ secrets.PINATA_SECRET_API_KEY }}
-          pinName: 'TattooedTechy-Hub-Latest'
+          pinata-api-key: ${{ secrets.PINATA_API_KEY }}
+          pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
+          source-path: './' # The root folder of your site
+          pin-name: 'TattooedTechy-Hub-Latest'
 
-      # --- 2. UPDATE IPNS (FORCE PUBLISH TO ALIAS) ---
-      # We use the Node.js environment to install and run a script to handle the IPNS update
+      # --- 2. SETUP NODE.JS ENVIRONMENT ---
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -38,5 +37,5 @@ jobs:
         env:
           PINATA_JWT_TOKEN: ${{ secrets.PINATA_JWT_TOKEN }}
           IPNS_HASH: ${{ secrets.IPNS_HASH }}
-          # The aquiladev action exposes its output as 'cid'
-          NEW_CID: ${{ steps.pinata_deploy.outputs.cid }}
+          # Output name convention for this action is usually 'cid', but may be 'ipfsHash' or 'ipfs_hash'
+          NEW_CID: ${{ steps.pinata_deploy.outputs.ipfs_hash }}
