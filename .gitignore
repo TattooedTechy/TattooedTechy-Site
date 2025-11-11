@@ -1,0 +1,6 @@
+# Pyre type checker
+.pyre/
+
+.DS_Store
+.AppleDouble
+.LSOverride
