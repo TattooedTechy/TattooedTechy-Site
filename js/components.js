@@ -56,10 +56,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // --- NEW FUNCTION ---
+    // This is the logic from your main.js, now a function
+    const initMobileMenu = () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuClosedIcon = document.getElementById('menu-closed-icon');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+
+        if (mobileMenuButton && mobileMenu && menuClosedIcon && menuOpenIcon) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuClosedIcon.classList.toggle('hidden');
+                menuOpenIcon.classList.toggle('hidden');
+            });
+        } else {
+            console.error('Could not initialize mobile menu. One or more elements not found.');
+        }
+    };
+
+
     const init = async () => {
-        // Load header, and once it's loaded, set the active nav link
+        // Load header
         await loadComponent('_header.html', 'header-placeholder');
+        
+        // NOW that the header is loaded, run the scripts that depend on it
         setActiveNav();
+        initMobileMenu(); // <-- Call the new function here
 
         // Load the footer
         await loadComponent('_footer.html', 'footer-placeholder');
