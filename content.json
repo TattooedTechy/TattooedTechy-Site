@@ -1,5 +1,25 @@
 [
     {
+        "id": "home-1",
+        "date": "2025-11-11",
+        "category": "home",
+        "title": "Roller Shade",
+        "description": "Community made me switch to the approved roller shade. So I installed some.",
+        "imageUrl": "images/rollblinds.jpg",
+        "linkUrl": "https://a.co/d/5Glbnef",
+        "aspect": "aspect-square"
+    },
+    {
+        "id": "tech-1",
+        "date": "2025-11-11",
+        "category": "tech",
+        "title": "Home Server",
+        "description": "Put together this build for myself. Calling it a Prosumer build",
+        "imageUrl": "images/server.png",
+        "linkUrl": "https://newegg.io/545e02b",
+        "aspect": "aspect-square"
+    },
+    {
         "id": "tattoo-28",
         "date": "2025-11-10",
         "category": "tattoo",
