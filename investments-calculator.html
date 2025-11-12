@@ -24,14 +24,25 @@
     <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
     <style>
+       /* Sets the default font for the whole page */
         body {
             font-family: 'Inter', 'sans-serif';
-            color: #d1d5db; 
+            /* Background is set by inline style on the body tag */
+            color: #d1d5db; /* Light gray text */
         }
+        /* Style for the 'active' navigation link (Desktop) */
         nav a.active {
-            color: #38bdf8; 
+            color: #38bdf8; /* Bright blue */
         }
-                #mobile-menu a.active-mobile { color: #38bdf8; background-color: #1f2937; }
+        /* Style for the 'active' navigation link (Mobile) */
+        #mobile-menu a.active-mobile { color: #38bdf8; background-color: #1f2937; }
+
+        /* Media query for very wide screens (e.g., unfolded foldable phones) */
+        @media (min-width: 1280px) { /* Tailwind's '2xl' breakpoint is 1536px, 'xl' is 1280px */
+            .max-w-7xl {
+                max-width: 100%; /* Allow content to stretch full width */
+            }
+        }
             </style>
 </head>
 <body class="antialiased bg-cover bg-center bg-fixed" style="background-image: url('images/banner1.jpg');">

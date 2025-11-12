@@ -40,6 +40,13 @@
         }
         /* Style for the 'active' navigation link (Mobile) */
         #mobile-menu a.active-mobile { color: #38bdf8; background-color: #1f2937; }
+
+        /* Media query for very wide screens (e.g., unfolded foldable phones) */
+        @media (min-width: 1280px) { /* Tailwind's '2xl' breakpoint is 1536px, 'xl' is 1280px */
+            .max-w-7xl {
+                max-width: 100%; /* Allow content to stretch full width */
+            }
+        }
     </style>
 </head>
 <body class="antialiased bg-cover bg-center bg-fixed" style="background-image: url('images/banner1.jpg');">
