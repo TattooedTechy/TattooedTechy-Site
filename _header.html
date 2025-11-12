@@ -1,0 +1,90 @@
+<div class="bg-gray-900/80 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-24">
+            <div class="flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-4">
+                    <img class="h-16 w-16 rounded-full border-2 border-sky-400" 
+                         src="images/avatar.jpg" 
+                         alt="Avatar"
+                         onerror="this.src='https://placehold.co/100x100/1f2937/d1d5db?text=T'; this.onerror=null;">
+                    <span class="text-3xl font-bold text-white">
+                        TattooedTechy.ETH
+                    </span>
+                </a>
+            </div>
+            <nav class="hidden md:flex md:space-x-4 lg:space-x-6 ml-6">
+                <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white whitespace-nowrap">Home</a>
+                <div class="relative dropdown">
+                    <a href="tattoos.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-nowrap">
+                        Tattoos <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                    </a>
+                    <div class="absolute z-10 bg-gray-800 rounded-md shadow-lg dropdown-content">
+                        <a href="tattoos-all.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">All Tattoos</a>
+                    </div>
+                </div>
+                <div class="relative dropdown">
+                    <a href="anime.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-nowrap">
+                        Anime <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                    </a>
+                    <div class="absolute z-10 bg-gray-800 rounded-md shadow-lg dropdown-content">
+                        <a href="anime-watching.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">Watching</a>
+                        <a href="anime-completed.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">Completed</a>
+                        <a href="anime-reviews.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">Reviews</a>
+                    </div>
+                </div>
+                <div class="relative dropdown">
+                    <a href="technology.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-nowrap">
+                        Technology <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                    </a>
+                    <div class="absolute z-10 bg-gray-800 rounded-md shadow-lg dropdown-content">
+                        <a href="technology-all.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">All Tech</a>
+                    </div>
+                </div>
+                <div class="relative dropdown">
+                    <a href="investments.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-nowrap">
+                        Investments <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                    </a>
+                    <div class="absolute z-10 bg-gray-800 rounded-md shadow-lg dropdown-content">
+                        <a href="investments-all.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">All Investments</a>
+                        <a href="investments-calculator.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">Calculator</a>
+                    </div>
+                </div>
+                <div class="relative dropdown">
+                    <a href="home-improvement.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-nowrap">
+                        Home Improvement <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                    </a>
+                    <div class="absolute z-10 bg-gray-800 rounded-md shadow-lg dropdown-content">
+                        <a href="home-improvement-all.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">All Home Improvement</a>
+                    </div>
+                </div>
+                <div class="relative dropdown">
+                    <a href="food.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-nowrap">
+                        Foodies <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
+                    </a>
+                    <div class="absolute z-10 bg-gray-800 rounded-md shadow-lg dropdown-content">
+                        <a href="food-recipes.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">Recipes</a>
+                        <a href="food-reviews.html" class="block px-4 py-2 text-sm text-gray-200 hover:bg-gray-700">Reviews</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-400">
+                    <span class="sr-only">Open main menu</span>
+                    <ion-icon name="menu-outline" class="block h-6 w-6" id="menu-closed-icon"></ion-icon>
+                    <ion-icon name="close-outline" class="hidden h-6 w-6" id="menu-open-icon"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="md:hidden hidden bg-gray-900/90 backdrop-blur-md" id="mobile-menu">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Home</a>
+        <a href="tattoos.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Tattoos</a>
+        <a href="anime.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Anime</a>
+        <a href="technology.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Technology</a>
+        <a href="investments.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Investments</a>
+        <a href="home-improvement.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Home Improvement</a>
+        <a href="food.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Foodies</a>
+    </div>
+</div>
