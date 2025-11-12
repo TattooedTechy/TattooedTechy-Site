@@ -12,7 +12,13 @@
                     </span>
                 </a>
             </div>
-            <nav class="hidden md:flex md:space-x-4 lg:space-x-6 ml-6">
+            <!-- 
+              CHANGED: 
+              - 'md:flex' is now 'lg:flex'
+              - 'md:space-x-4' is now 'lg:space-x-4'
+              This keeps the desktop nav hidden until the 'lg' breakpoint (1024px)
+            -->
+            <nav class="hidden lg:flex lg:space-x-4 lg:space-x-6 ml-6">
                 <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white whitespace-nowrap">Home</a>
                 <div class="relative dropdown">
                     <a href="tattoos.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-nowrap">
@@ -58,7 +64,7 @@
                     </div>
                 </div>
                 <div class="relative dropdown">
-                    <a href="food.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-nowrap">
+                    <a href="food.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-200 hover:text-white flex items-center whitespace-DRAFT">
                         Foodies <ion-icon name="chevron-down-outline" class="ml-1"></ion-icon>
                     </a>
                     <div class="absolute z-10 bg-gray-800 rounded-md shadow-lg dropdown-content">
@@ -67,7 +73,12 @@
                     </div>
                 </div>
             </nav>
-            <div class="md:hidden flex items-center">
+            <!-- 
+              CHANGED: 
+              - 'md:hidden' is now 'lg:hidden'
+              This keeps the mobile hamburger button visible until the 'lg' breakpoint
+            -->
+            <div class="lg:hidden flex items-center">
                 <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-400">
                     <span class="sr-only">Open main menu</span>
                     <ion-icon name="menu-outline" class="block h-6 w-6" id="menu-closed-icon"></ion-icon>
@@ -77,7 +88,12 @@
         </div>
     </div>
 </div>
-<div class="md:hidden hidden bg-gray-900/90 backdrop-blur-md" id="mobile-menu">
+<!-- 
+  CHANGED: 
+  - 'md:hidden' is now 'lg:hidden'
+  This makes the mobile menu (the dropdown) cover the 'md' breakpoint
+-->
+<div class="lg:hidden hidden bg-gray-900/90 backdrop-blur-md" id="mobile-menu">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Home</a>
         <a href="tattoos.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-200 hover:bg-gray-700/50 whitespace-nowrap">Tattoos</a>
