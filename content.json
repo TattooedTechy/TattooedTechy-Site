@@ -2,7 +2,7 @@
     {
         "id": "investment-1",
         "date": "2025-11-11",
-        "category": "investments",
+        "category": "investment",
         "title": "Auto Investor Bot",
         "description": "Built this awhile ago for auto day trading on Alpaca. I polished it and published it now.",
         "imageUrl": "images/bottrader.png",
