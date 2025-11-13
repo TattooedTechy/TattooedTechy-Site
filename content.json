@@ -1,5 +1,15 @@
 [
     {
+        "id": "investment-1",
+        "date": "2025-11-11",
+        "category": "investments",
+        "title": "Auto Investor Bot",
+        "description": "Built this awhile ago for auto day trading on Alpaca. I polished it and published it now.",
+        "imageUrl": "images/bottrader.png",
+        "linkUrl": "https://github.com/TattooedTechy/Alpaca_Auto_Day_Trader",
+        "aspect": "aspect-square"
+    },
+    {
         "id": "home-1",
         "date": "2025-11-11",
         "category": "home",
