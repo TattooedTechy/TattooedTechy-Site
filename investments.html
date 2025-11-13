@@ -106,7 +106,7 @@
                     <div class="p-6 md:p-10">
                         
                         <!-- 1. Sub-page Navigation (FIXED: All links in one grid) -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                             <!-- Link to Calculator -->
                             <!-- Added h-full to make grid cells equal height -->
                             <a href="investments-calculator.html" class="block h-full bg-gray-800/50 hover:bg-sky-800/30 p-8 rounded-2xl shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
@@ -115,8 +115,20 @@
                                         <ion-icon name="calculator-outline" class="h-8 w-8 text-white"></ion-icon>
                                     </div>
                                     <div>
-                                        <h2 class="text-2xl font-bold text-white">FIRE Calculator</h2>
-                                        <p class="text-lg text-gray-300 mt-1">Run your own numbers with the "waterfall" model.</p>
+                                        <h2 class="text-2xl font-bold text-white">Individual FIRE Calculator</h2>
+                                        <p class="text-lg text-gray-300 mt-1">Run your own numbers with the "waterfall" model for Individual limits.</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="investments-family-calculator.html" class="block h-full bg-gray-800/50 hover:bg-sky-800/30 p-8 rounded-2xl shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1">
+                                <div class="flex items-center space-x-6">
+                                    <div class="flex-shrink-0 bg-sky-500 p-4 rounded-full">
+                                        <ion-icon name="calculator-outline" class="h-8 w-8 text-white"></ion-icon>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-2xl font-bold text-white">Family FIRE Calculator</h2>
+                                        <p class="text-lg text-gray-300 mt-1">Run your own numbers with the "waterfall" model for family limits</p>
                                     </div>
                                 </div>
                             </a>
@@ -130,7 +142,7 @@
                                     </div>
                                     <div>
                                         <h2 class="text-2xl font-bold text-white">Full Investment Archive</h2>
-                                        <p class="text-lg text-gray-300 mt-1">See all my past market commentary.</p>
+                                        <p class="text-lg text-gray-300 mt-1">See all my past investments content.</p>
                                     </div>
                                 </div>
                             </a>
@@ -210,7 +222,7 @@
                         
                         <!-- 3. Dynamic Content Feed (FIXED: Now inside padded div) -->
                         <div class="prose prose-invert prose-lg max-w-none text-gray-300">
-                            <h2 class="text-3xl font-bold text-white border-b border-gray-700/50 pb-2 mt-12 mb-8">Latest Market Thoughts</h2>
+                            <h2 class="text-3xl font-bold text-white border-b border-gray-700/50 pb-2 mt-12 mb-8">Latest Investment Content</h2>
                             
                             <div id="content-feed" class="not-prose grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 <!-- Content will be injected here -->

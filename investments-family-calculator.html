@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TattooedTechy - FIRE Calculator</title>
+    <title>TattooedTechy - Family FIRE Calculator</title>
     <link rel="icon" type="image/jpeg" href="images/avatar.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -59,11 +59,11 @@
                     
                     <div class="p-6 md:p-10 border-b border-gray-700/50">
                         <h1 class="text-4xl font-bold text-white">
-                            Individual Robust FIRE Calculator
+                            Family Robust FIRE Calculator
                         </h1>
                         <!-- UPDATED DESCRIPTION -->
-                        <p class="text-lg text-gray-300 mt-1">An optimal "waterfall" calculator. Run your own numbers! If you don't get annual raises put 0.</p>
-                        <p class="text-lg text-gray-300 mt-1">The contribution limits are set for 2026 projections and all limits are for individuals only.</p>
+                        <p class="text-lg text-gray-300 mt-1">An optimal "waterfall" calculator for two people. Run your own numbers! If you don't get annual raises put 0.</p>
+                        <p class="text-lg text-gray-300 mt-1">The contribution limits are set for 2026 projections and all limits are for family.</p>
                     </div>
 
                     <!-- 2-COLUMN LAYOUT -->
@@ -76,7 +76,7 @@
                                 <!-- 1. Current Status -->
                                 <div>
                                     <h3 class="text-2xl font-semibold text-white mb-4">1. Current Status</h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
                                         <div>
                                             <label for="currentAge" class="block text-sm font-medium text-gray-300 mb-1">Current Age</label>
                                             <input type="number" id="currentAge" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="30">
@@ -86,8 +86,12 @@
                                             <input type="number" id="retirementAge" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="65">
                                         </div>
                                         <div>
-                                            <label for="initialSalary" class="block text-sm font-medium text-gray-300 mb-1">Initial Salary ($)</label>
-                                            <input type="number" id="initialSalary" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="60000">
+                                            <label for="initialSalary1" class="block text-sm font-medium text-gray-300 mb-1">Initial Salary 1 ($)</label>
+                                            <input type="number" id="initialSalary1" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="60000">
+                                        </div>
+                                        <div>
+                                            <label for="initialSalary2" class="block text-sm font-medium text-gray-300 mb-1">Initial Salary 2 ($)</label>
+                                            <input type="number" id="initialSalary2" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="80000">
                                         </div>
                                     </div>
                                 </div>
@@ -212,10 +216,14 @@
                                 <!-- 6. Savings Plan -->
                                 <div>
                                     <h3 class="text-2xl font-semibold text-white mb-4">6. Savings Plan (Current Annual Contributions)</h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                                         <div>
-                                            <label for="base_contrib_401k" class="block text-sm font-medium text-gray-300 mb-1">401k (Employee)</label>
-                                            <input type="number" id="base_contrib_401k" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="3000">
+                                            <label for="base_contrib_401k_1" class="block text-sm font-medium text-gray-300 mb-1">401k (Employee 1)</label>
+                                            <input type="number" id="base_contrib_401k_1" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="3000">
+                                        </div>
+                                        <div>
+                                            <label for="base_contrib_401k_2" class="block text-sm font-medium text-gray-300 mb-1">401k (Employee 2)</label>
+                                            <input type="number" id="base_contrib_401k_2" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" value="3000">
                                         </div>
                                         <div>
                                             <label for="base_contrib_roth_ira" class="block text-sm font-medium text-gray-300 mb-1">Roth IRA</label>
@@ -280,8 +288,12 @@
                                             <input type="number" id="salaryRaiseRate" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.030">
                                         </div>
                                         <div>
-                                            <label for="employerMatchRate" class="block text-sm font-medium text-gray-300 mb-1">Employer Match 401k (%)</label>
-                                            <input type="number" id="employerMatchRate" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.35">
+                                            <label for="employerMatchRate1" class="block text-sm font-medium text-gray-300 mb-1">Employer Match 401k 1 (%)</label>
+                                            <input type="number" id="employerMatchRate1" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.35">
+                                        </div>
+                                        <div>
+                                            <label for="employerMatchRate2" class="block text-sm font-medium text-gray-300 mb-1">Employer Match 401k 2 (%)</label>
+                                            <input type="number" id="employerMatchRate2" class="w-full bg-gray-700/50 border border-gray-600 rounded-md shadow-sm px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-sky-400" step="0.001" value="0.35">
                                         </div>
                                         <div>
                                             <label for="generalInflation" class="block text-sm font-medium text-gray-300 mb-1">General Inflation (%)</label>
@@ -446,7 +458,7 @@
 
     <!-- Component & Main Scripts -->
     <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
+    
     <script src="js/site-updater.js"></script>
 
     <!-- CALCULATOR SCRIPT (UPDATED) -->
@@ -527,7 +539,9 @@
             // === 1. GET ALL FORM VALUES ===
             const CURRENT_AGE = parseFloat(document.getElementById('currentAge').value);
             const RETIREMENT_AGE = parseFloat(document.getElementById('retirementAge').value);
-            const INITIAL_SALARY = parseFloat(document.getElementById('initialSalary').value);
+            const INITIAL_SALARY_1 = parseFloat(document.getElementById('initialSalary1').value);
+            const INITIAL_SALARY_2 = parseFloat(document.getElementById('initialSalary2').value);
+            const INITIAL_SALARY = INITIAL_SALARY_1 + INITIAL_SALARY_2;
             const pv_401k = parseFloat(document.getElementById('pv_401k').value);
             const pv_roth_ira = parseFloat(document.getElementById('pv_roth_ira').value);
             const pv_brokerage = parseFloat(document.getElementById('pv_brokerage').value);
@@ -554,7 +568,9 @@
             const hsa_alloc_crypto = parseFloat(document.getElementById('hsa_alloc_crypto').value);
             
             // Savings
-            const base_contrib_401k = parseFloat(document.getElementById('base_contrib_401k').value);
+            const base_contrib_401k_1 = parseFloat(document.getElementById('base_contrib_401k_1').value);
+            const base_contrib_401k_2 = parseFloat(document.getElementById('base_contrib_401k_2').value);
+            const base_contrib_401k = base_contrib_401k_1 + base_contrib_401k_2;
             const base_contrib_roth_ira = parseFloat(document.getElementById('base_contrib_roth_ira').value);
             const base_contrib_brokerage = parseFloat(document.getElementById('base_contrib_brokerage').value);
             const base_contrib_hsa = parseFloat(document.getElementById('base_contrib_hsa').value);
@@ -570,7 +586,8 @@
             
             // Assumptions
             const SALARY_RAISE_RATE = parseFloat(document.getElementById('salaryRaiseRate').value);
-            const EMPLOYER_MATCH_RATE = parseFloat(document.getElementById('employerMatchRate').value);
+            const EMPLOYER_MATCH_RATE_1 = parseFloat(document.getElementById('employerMatchRate1').value);
+            const EMPLOYER_MATCH_RATE_2 = parseFloat(document.getElementById('employerMatchRate2').value);
             const GENERAL_INFLATION_RATE = parseFloat(document.getElementById('generalInflation').value);
             const LIMIT_INFLATION_RATE = parseFloat(document.getElementById('limitInflation').value);
             
@@ -623,9 +640,9 @@
             
             // === 4. SET LEGAL LIMITS (2025 base) ===
             const base_limits = {
-                '401k': 24500.0, 
-                'IRA': 7500.0,
-                'HSA': 4400.0
+                '401k': 49000.0, 
+                'IRA': 15000.0,
+                'HSA': 8750.0
             };
 
             // === 5. RUN SIMULATION (FIXED LOGIC) ===
@@ -719,7 +736,7 @@
                 const final_contrib_401k_employee = Math.min(contrib_401k_employee, current_401k_limit);
 
                 // Use the new calculated salary for employer match
-                const employer_match_c = current_salary * EMPLOYER_MATCH_RATE;
+                const employer_match_c = (INITIAL_SALARY_1 * Math.pow(1 + SALARY_RAISE_RATE, year) * EMPLOYER_MATCH_RATE_1) + (INITIAL_SALARY_2 * Math.pow(1 + SALARY_RAISE_RATE, year) * EMPLOYER_MATCH_RATE_2);
                 const total_401k_c = final_contrib_401k_employee + employer_match_c;
                 
                 // --- 5E. Calculate Future Values (End-of-Year Contribution) ---
