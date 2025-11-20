@@ -24,8 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/dropdown.css">
-    <!-- Loads icons (like for the mobile menu) -->
+    <link rel="stylesheet" href="css/dropdown.css?v=%CACHE_VERSION%">
     <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
     <style>
@@ -86,7 +85,7 @@
                         <!-- Disclaimer Section -->
                         <div class="mt-4 pt-4 border-t border-gray-700/50">
                             <p class="text-base text-gray-400">
-                                <strong>Disclaimer:</strong> I do not claim to be an expert. I am sharing my personal processes and my opinions.
+                                <strong>Disclaimer:</strong> I do not claim to be an expert. I am sharing my opinions and processes.
                             </p>
                             <p class="text-base text-gray-400 mt-1">
                                 Some information may be outdated or inaccurate.
@@ -130,7 +129,9 @@
     DYNAMIC CONTENT SCRIPT
     =======================================================
     -->
-    <script src="js/site-updater.js"></script>
+    <script src="js/components.js?v=%CACHE_VERSION%"></script>
+    <script src="js/main.js?v=%CACHE_VERSION%"></script>
+    <script src="js/site-updater.js?v=%CACHE_VERSION%"></script>
     <script>
         // When the page loads, render the content
         document.addEventListener('DOMContentLoaded', () => {
